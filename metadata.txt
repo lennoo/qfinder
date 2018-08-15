@@ -1,0 +1,23 @@
+[general]
+
+name=QFinder
+
+description=Quick Finder offers a single place to perform searches on project layers and online remote services
+
+about=The plugins allows to search by two different means. First, you can use online web services such as OSM or GeoMapFish. Second, you can define your own searches on local layers using expressions. These are stored on a local SQLite database which allow very fast searches.
+
+version=3.3.3
+
+qgisMinimumVersion=2.14
+
+author=Denis Rouzaud, Arnaud Morvan
+email=denis.rouzaud@gmail.com
+
+icon=icons/quickfinder.svg
+
+tags=search,find,feature,full-text search,openstreetmap,geomapfish
+
+homepage=http://3nids.github.io/quickfinder
+tracker=https://github.com/3nids/quickfinder/issues
+repository=https://github.com/3nids/quickfinder
+
