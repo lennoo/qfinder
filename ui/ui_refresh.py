@@ -96,8 +96,10 @@ class Ui_Refresh(object):
         self.gridLayout.addWidget(self.selectionWidget, 1, 0, 1, 1)
 
         self.retranslateUi(Refresh)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), Refresh.accept)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), Refresh.reject)
+#        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), Refresh.accept)
+#        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), Refresh.reject)
+        self.buttonBox.accepted.connect(Refresh.accept)
+        self.buttonBox.rejected.connect(Refresh.reject)
         QtCore.QMetaObject.connectSlotsByName(Refresh)
 
     def retranslateUi(self, Refresh):

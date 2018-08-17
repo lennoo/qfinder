@@ -72,7 +72,7 @@ class Ui_ProjectSearch(object):
         self.progressBar.setProperty("value", 24)
         self.progressBar.setObjectName(_fromUtf8("progressBar"))
         self.formLayout.setWidget(10, QtWidgets.QFormLayout.SpanningRole, self.progressBar)
-        self.evaluateCheckBox = QtGui.QCheckBog(ProjectSearch)
+        self.evaluateCheckBox = QtWidgets.QCheckBox(ProjectSearch)
         self.evaluateCheckBox.setChecked(True)
         self.evaluateCheckBox.setObjectName(_fromUtf8("evaluateCheckBox"))
         self.formLayout.setWidget(9, QtWidgets.QFormLayout.SpanningRole, self.evaluateCheckBox)

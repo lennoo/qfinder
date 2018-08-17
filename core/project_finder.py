@@ -34,7 +34,7 @@ except ImportError:
     from .ordereddict import OrderedDict  # for Python < 2.7
 
 from qgis.PyQt.QtCore import pyqtSignal, QCoreApplication, QFile, QDir
-from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject
+from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject, QgsExpressionContext, QgsExpressionContextScope
 from qgis.gui import QgsMessageBar
 from .project_search import ProjectSearch
 from .abstract_finder import AbstractFinder
@@ -311,13 +311,17 @@ class ProjectFinder(AbstractFinder):
         qgsExpression = QgsExpression(expression)
         self.stopLoop = False
         i = 0
+        context = QgsExpressionContext()
+        scope = QgsExpressionContextScope()
         for f in layer.getFeatures(featReq):
             QCoreApplication.processEvents()
             if self.stopLoop:
                 break
             self.recordingSearchProgress.emit(i)
             i += 1
-            evaluated = str(qgsExpression.evaluate(f))
+            scope.setFeature(f)
+            context.appendScope(scope)
+            evaluated = str(qgsExpression.evaluate())
             if qgsExpression.hasEvalError():
                 continue
             if f.geometry() is None or f.geometry().centroid() is None:
