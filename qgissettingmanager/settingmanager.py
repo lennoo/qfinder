@@ -1,3 +1,5 @@
+from __future__ import print_function
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS setting manager is a python module to easily manage read/write
@@ -27,14 +29,15 @@
 #---------------------------------------------------------------------
 
 
-from types import *
-from scope import Scope
+from builtins import object
+from .types import *
+from .scope import Scope
 
 # to print debug info
 Debug = False
 
 
-class SettingManager:
+class SettingManager(object):
     def __init__(self, plugin_name):
         self.plugin_name = plugin_name
         self.settings = []

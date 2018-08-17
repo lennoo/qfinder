@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
@@ -23,10 +24,11 @@
 #
 #---------------------------------------------------------------------
 
+from builtins import str
 import json
 
 from qgis.core import QgsGeometry
-from http_finder import HttpFinder
+from .http_finder import HttpFinder
 
 
 class OsmFinder(HttpFinder):

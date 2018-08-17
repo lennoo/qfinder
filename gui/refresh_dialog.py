@@ -23,8 +23,8 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtCore import QCoreApplication
-from PyQt4.QtGui import QDialog
+from qgis.PyQt.QtCore import QCoreApplication
+from qgis.PyQt.QtWidgets import QDialog
 from ..core.project_finder import n_days_ago_iso_date
 from ..core.my_settings import MySettings
 from ..ui.ui_refresh import Ui_Refresh
@@ -80,7 +80,7 @@ class RefreshDialog(QDialog, Ui_Refresh):
 
         self.searchProgress = -1
 
-        for search in searches.values():
+        for search in list(searches.values()):
             QCoreApplication.processEvents()
 
             self.searchProgress += 1

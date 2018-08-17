@@ -23,7 +23,7 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtGui import QColor
+from qgis.PyQt.QtGui import QColor
 from quickfinder.qgissettingmanager import SettingManager, Scope, Bool, String, Integer
 
 pluginName = "quickfinder_plugin"

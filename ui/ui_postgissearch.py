@@ -6,7 +6,8 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt4 import QtCore, QtGui
+from builtins import object
+from qgis.PyQt import QtCore, QtGui, QtWidgets
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -15,27 +16,27 @@ except AttributeError:
         return s
 
 try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
+    _encoding = QtWidgets.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+        return QtWidgets.QApplication.translate(context, text, disambig)
 
 class Ui_PostgisSearch(object):
     def setupUi(self, PostgisSearch):
         PostgisSearch.setObjectName(_fromUtf8("PostgisSearch"))
         PostgisSearch.resize(551, 368)
-        self.gridLayout = QtGui.QGridLayout(PostgisSearch)
+        self.gridLayout = QtWidgets.QGridLayout(PostgisSearch)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.cancelButton = QtGui.QPushButton(PostgisSearch)
+        self.cancelButton = QtWidgets.QPushButton(PostgisSearch)
         self.cancelButton.setObjectName(_fromUtf8("cancelButton"))
         self.horizontalLayout.addWidget(self.cancelButton)
-        self.okButton = QtGui.QPushButton(PostgisSearch)
+        self.okButton = QtWidgets.QPushButton(PostgisSearch)
         self.okButton.setObjectName(_fromUtf8("okButton"))
         self.horizontalLayout.addWidget(self.okButton)
         self.gridLayout.addLayout(self.horizontalLayout, 5, 0, 1, 2)
@@ -44,39 +45,39 @@ class Ui_PostgisSearch(object):
         self.queryEdit.setAcceptRichText(False)
         self.queryEdit.setObjectName(_fromUtf8("queryEdit"))
         self.gridLayout.addWidget(self.queryEdit, 2, 1, 1, 2)
-        self.srid = QtGui.QLineEdit(PostgisSearch)
+        self.srid = QtWidgets.QLineEdit(PostgisSearch)
         self.srid.setEnabled(True)
         self.srid.setInputMask(_fromUtf8(""))
         self.srid.setReadOnly(True)
         self.srid.setObjectName(_fromUtf8("srid"))
         self.gridLayout.addWidget(self.srid, 3, 1, 1, 1)
-        self.postgisCrsButton = QtGui.QPushButton(PostgisSearch)
+        self.postgisCrsButton = QtWidgets.QPushButton(PostgisSearch)
         self.postgisCrsButton.setObjectName(_fromUtf8("postgisCrsButton"))
         self.gridLayout.addWidget(self.postgisCrsButton, 3, 2, 1, 1)
-        self.postgisCrsLabel = QtGui.QLabel(PostgisSearch)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
+        self.postgisCrsLabel = QtWidgets.QLabel(PostgisSearch)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.postgisCrsLabel.sizePolicy().hasHeightForWidth())
         self.postgisCrsLabel.setSizePolicy(sizePolicy)
         self.postgisCrsLabel.setObjectName(_fromUtf8("postgisCrsLabel"))
         self.gridLayout.addWidget(self.postgisCrsLabel, 3, 0, 1, 1)
-        self.label_2 = QtGui.QLabel(PostgisSearch)
+        self.label_2 = QtWidgets.QLabel(PostgisSearch)
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.gridLayout.addWidget(self.label_2, 4, 0, 1, 1)
-        self.project = QtGui.QCheckBox(PostgisSearch)
+        self.project = QtWidgets.QCheckBox(PostgisSearch)
         self.project.setObjectName(_fromUtf8("project"))
         self.gridLayout.addWidget(self.project, 0, 1, 1, 1)
-        self.FieldNameLabel = QtGui.QLabel(PostgisSearch)
+        self.FieldNameLabel = QtWidgets.QLabel(PostgisSearch)
         self.FieldNameLabel.setObjectName(_fromUtf8("FieldNameLabel"))
         self.gridLayout.addWidget(self.FieldNameLabel, 2, 0, 1, 1)
-        self.searchName = QtGui.QLineEdit(PostgisSearch)
+        self.searchName = QtWidgets.QLineEdit(PostgisSearch)
         self.searchName.setObjectName(_fromUtf8("searchName"))
         self.gridLayout.addWidget(self.searchName, 1, 1, 1, 2)
-        self.label = QtGui.QLabel(PostgisSearch)
+        self.label = QtWidgets.QLabel(PostgisSearch)
         self.label.setObjectName(_fromUtf8("label"))
         self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
-        self.priorityBox = QtGui.QSpinBox(PostgisSearch)
+        self.priorityBox = QtWidgets.QSpinBox(PostgisSearch)
         self.priorityBox.setMinimum(1)
         self.priorityBox.setMaximum(999)
         self.priorityBox.setProperty("value", 1)

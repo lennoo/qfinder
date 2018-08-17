@@ -23,9 +23,9 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtGui import QDialog, QErrorMessage
-from PyQt4.QtCore import Qt
-from qgis.gui import QgsMapLayerProxyModel
+from qgis.PyQt.QtWidgets import QDialog, QErrorMessage
+from qgis.PyQt.QtCore import Qt
+from qgis.core import QgsMapLayerProxyModel
 from ..ui.ui_projectsearch import Ui_ProjectSearch
 
 

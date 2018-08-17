@@ -24,8 +24,8 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtCore import pyqtSignal, QObject
-from qgis.core import QgsMapLayerRegistry
+from qgis.PyQt.QtCore import pyqtSignal, QObject
+from qgis.core import QgsProject
 
 
 class PostgisSearch(QObject):

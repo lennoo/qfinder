@@ -25,12 +25,12 @@
 
 from os import remove, path
 
-from PyQt4.QtCore import QCoreApplication
-from PyQt4.QtGui import (QDialog, QFileDialog, QMessageBox,
-                        QSortFilterProxyModel, QHeaderView)
+from qgis.PyQt.QtCore import QCoreApplication
+from qgis.PyQt.QtWidgets import QDialog, QFileDialog, QMessageBox, QHeaderView
+from qgis.PyQt.QtCore import QSortFilterProxyModel
 
 from qgis.core import QgsProject
-from qgis.gui import QgsGenericProjectionSelector
+from qgis.gui import QgsProjectionSelectionTreeWidget
 
 from quickfinder.qgissettingmanager import SettingDialog
 from quickfinder.core.mysettings import MySettings
@@ -87,7 +87,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
 
     def closeAndControl(self):
         self.projectFinder.close()
-        for search in self.projectFinder.searches.values():
+        for search in list(self.projectFinder.searches.values()):
             if search.dateEvaluated is None:
                 box = QMessageBox(QMessageBox.Warning,
                                   "Quick Finder",
@@ -110,7 +110,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
 
     def createQFTSfile(self):
         prjPath = QgsProject.instance().homePath()
-        filepath = QFileDialog.getSaveFileName(self, "Create Quickfinder index file", prjPath,
+        filepath, __ = QFileDialog.getSaveFileName(self, "Create Quickfinder index file", prjPath,
                                                "Quickfinder file (*.qfts)")
         if filepath:
             if filepath[-5:] != ".qfts":
@@ -123,7 +123,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
 
     def openQFTSfile(self):
         prjPath = QgsProject.instance().homePath()
-        filepath = QFileDialog.getOpenFileName(self, "Open Quickfinder index file",
+        filepath, __ = QFileDialog.getOpenFileName(self, "Open Quickfinder index file",
                                                prjPath, "Quickfinder file (*.qfts)")
         if filepath:
             self.qftsfilepath.setText(filepath)
@@ -150,7 +150,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
         sel = self.selectedSearchIds()
         if len(sel) != 1:
             return
-        if not self.projectSearchModel.searches.has_key(sel[0]):
+        if sel[0] not in self.projectSearchModel.searches:
             return
         search = self.projectSearchModel.searches[sel[0]]
         if search:
@@ -172,7 +172,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
         self.projectSearchButtonsWidget.setEnabled(self.projectFinder.isValid)
 
     def geomapfishCrsButtonClicked(self):
-        dlg = QgsGenericProjectionSelector(self)
+        dlg = QgsProjectionSelectionTreeWidget(self)
         dlg.setMessage('Select GeoMapFish CRS')
         dlg.setSelectedAuthId(self.geomapfishCrs.text())
         if dlg.exec_():

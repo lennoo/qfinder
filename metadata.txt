@@ -8,7 +8,7 @@ about=The plugins allows to search by two different means. First, you can use on
 
 version=3.3.3
 
-qgisMinimumVersion=2.14
+qgisMinimumVersion=3.2
 
 author=Denis Rouzaud, Arnaud Morvan
 email=denis.rouzaud@gmail.com

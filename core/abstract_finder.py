@@ -23,12 +23,12 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtCore import QObject, pyqtSignal
+from qgis.PyQt.QtCore import QObject, pyqtSignal
 
-from qgis.core import QgsGeometry
+from qgis.core import QgsGeometry, Qgis
 from qgis.gui import QgsMessageBar
 
-from my_settings import MySettings
+from .my_settings import MySettings
 
 
 class AbstractFinder(QObject):
@@ -43,7 +43,7 @@ class AbstractFinder(QObject):
     result_found = pyqtSignal(QObject, str, str, QgsGeometry, int)
     limit_reached = pyqtSignal(QObject, str)
     finished = pyqtSignal(QObject)
-    message = pyqtSignal(str, QgsMessageBar.MessageLevel)
+    message = pyqtSignal(str, Qgis.MessageLevel)
 
     def __init__(self, parent):
         QObject.__init__(self, parent)

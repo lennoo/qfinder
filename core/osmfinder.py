@@ -23,6 +23,7 @@
 #
 #---------------------------------------------------------------------
 
+from builtins import str
 import json
 
 from qgis.core import QgsGeometry

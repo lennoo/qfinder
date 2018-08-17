@@ -23,9 +23,10 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop
-from PyQt4.QtGui import (QComboBox, QSizePolicy, QTreeView, QIcon, QApplication, QColor,
-                         QPushButton, QCursor, QHBoxLayout)
+from builtins import range
+from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop
+from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout
+from qgis.PyQt.QtGui import QIcon, QColor, QCursor
 
 from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform
 from qgis.gui import QgsRubberBand
@@ -73,7 +74,7 @@ class FinderBox(QComboBox):
         self.setModel(self.resultModel)
 
         self.finders = finders
-        for finder in self.finders.values():
+        for finder in list(self.finders.values()):
             finder.resultFound.connect(self.resultFound)
             finder.limitReached.connect(self.limitReached)
             finder.finished.connect(self.finished)
@@ -136,7 +137,7 @@ class FinderBox(QComboBox):
         QCoreApplication.processEvents(QEventLoop.ExcludeUserInputEvents)
 
         self.findersToStart = []
-        for finder in self.finders.values():
+        for finder in list(self.finders.values()):
             if finder.activated():
                 self.findersToStart.append(finder)
 
@@ -153,7 +154,7 @@ class FinderBox(QComboBox):
 
     def stop(self):
         self.findersToStart = []
-        for finder in self.finders.values():
+        for finder in list(self.finders.values()):
             if finder.isRunning():
                 finder.stop()
         self.finished(None)
@@ -168,7 +169,7 @@ class FinderBox(QComboBox):
     def finished(self, finder):
         if len(self.findersToStart) > 0:
             return
-        for finder in self.finders.values():
+        for finder in list(self.finders.values()):
             if finder.isRunning():
                 return
 
@@ -202,7 +203,7 @@ class FinderBox(QComboBox):
             if isinstance(child, ResultItem):
                 self.resultModel.setSelected(item, self.resultView.palette())
                 self.rubber.reset(child.geometry.type())
-                for i in xrange(0, item.rowCount()):
+                for i in range(0, item.rowCount()):
                     geometry = self.transformGeom(item.child(i))
                     self.rubber.addGeometry(geometry, None)
                 self.zoomToRubberBand()

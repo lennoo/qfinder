@@ -30,6 +30,7 @@
 # TODO python3 use enum instead
 
 
+from builtins import object
 class Scope(object):
     Project = 1
     Global = 2

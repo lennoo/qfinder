@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
@@ -23,15 +24,16 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop
-from PyQt4.QtGui import (QComboBox, QSizePolicy, QTreeView, QIcon, QApplication, QColor,
-                         QPushButton, QCursor, QHBoxLayout)
+from builtins import range
+from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop
+from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout
+from qgis.PyQt.QtGui import QIcon, QColor, QCursor
 
-from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform
+from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject
 from qgis.gui import QgsRubberBand
 
 from ..core.my_settings import MySettings
-from result_model import ResultModel, GroupItem, ResultItem
+from .result_model import ResultModel, GroupItem, ResultItem
 
 
 class FinderBox(QComboBox):
@@ -73,7 +75,7 @@ class FinderBox(QComboBox):
         self.setModel(self.result_model)
 
         self.finders = finders
-        for finder in self.finders.values():
+        for finder in list(self.finders.values()):
             finder.result_found.connect(self.result_found)
             finder.limit_reached.connect(self.limit_reached)
             finder.finished.connect(self.finished)
@@ -136,7 +138,7 @@ class FinderBox(QComboBox):
         QCoreApplication.processEvents(QEventLoop.ExcludeUserInputEvents)
 
         self.finders_to_start = []
-        for finder in self.finders.values():
+        for finder in list(self.finders.values()):
             if finder.activated():
                 self.finders_to_start.append(finder)
 
@@ -153,7 +155,7 @@ class FinderBox(QComboBox):
 
     def stop(self):
         self.finders_to_start = []
-        for finder in self.finders.values():
+        for finder in list(self.finders.values()):
             if finder.is_running():
                 finder.stop()
         self.finished(None)
@@ -168,7 +170,7 @@ class FinderBox(QComboBox):
     def finished(self, finder):
         if len(self.finders_to_start) > 0:
             return
-        for finder in self.finders.values():
+        for finder in list(self.finders.values()):
             if finder.is_running():
                 return
 
@@ -202,7 +204,7 @@ class FinderBox(QComboBox):
             if isinstance(child, ResultItem):
                 self.result_model.setSelected(item, self.result_view.palette())
                 self.rubber.reset(child.geometry.type())
-                for i in xrange(0, item.rowCount()):
+                for i in range(0, item.rowCount()):
                     geometry = self.transform_geom(item.child(i))
                     self.rubber.addGeometry(geometry, None)
                 self.zoom_to_rubberband()
@@ -214,9 +216,9 @@ class FinderBox(QComboBox):
     def transform_geom(self, item):
         src_crs = QgsCoordinateReferenceSystem()
         src_crs.createFromSrid(item.srid)
-        dest_crs = self.mapCanvas.mapRenderer().destinationCrs()
+        dest_crs = self.mapCanvas.mapSettings().destinationCrs()
         geom = QgsGeometry(item.geometry)
-        geom.transform(QgsCoordinateTransform(src_crs, dest_crs))
+        geom.transform(QgsCoordinateTransform(src_crs, dest_crs, QgsProject.instance()))
         return geom
 
     def zoom_to_rubberband(self):

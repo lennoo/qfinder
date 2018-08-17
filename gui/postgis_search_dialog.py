@@ -23,9 +23,9 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtGui import QDialog
+from qgis.PyQt.QtWidgets import QDialog
 from ..ui.ui_postgissearch import Ui_PostgisSearch
-from qgis.gui import QgsGenericProjectionSelector
+from qgis.gui import QgsProjectionSelectionTreeWidget
 
 
 class PostgisSearchDialog(QDialog, Ui_PostgisSearch):
@@ -70,7 +70,7 @@ class PostgisSearchDialog(QDialog, Ui_PostgisSearch):
         self.close()
 
     def postgisCrsButtonClicked(self):
-        dlg = QgsGenericProjectionSelector(self)
+        dlg = QgsProjectionSelectionTreeWidget(self)
         dlg.setMessage('Select Postgis CRS')
         dlg.setSelectedAuthId('EPSG:%s' % self.srid.text())
         if dlg.exec_():

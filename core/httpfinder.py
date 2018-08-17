@@ -22,10 +22,12 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 #---------------------------------------------------------------------
-import urllib, urllib2, json
+from future import standard_library
+standard_library.install_aliases()
+import urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse, json
 
-from PyQt4.QtCore import QUrl
-from PyQt4.QtNetwork import QNetworkRequest, QNetworkReply
+from qgis.PyQt.QtCore import QUrl
+from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply
 from qgis.core import QgsNetworkAccessManager
 from qgis.core import QgsLogger
 from qgis.gui import QgsMessageBar
@@ -49,17 +51,17 @@ class HttpFinder(AbstractFinder):
                 self.reply = None
 
             url = QUrl(url)
-            for key, value in params.iteritems():
+            for key, value in params.items():
                 url.addQueryItem(key, value)
             QgsLogger.debug('Request: {}'.format(url.toEncoded()))
             request = QNetworkRequest(url)
-            for key, value in headers.iteritems():
+            for key, value in headers.items():
                 request.setRawHeader(key, value)
             self.reply = QgsNetworkAccessManager.instance().get(request)
             self.reply.finished.connect(self.replyFinished)
 
         else:
-            response = urllib2.urlopen(self.url + '?' + urllib.urlencode(params))
+            response = urllib.request.urlopen(self.url + '?' + urllib.parse.urlencode(params))
             data = json.load(response)
             self.loadData(data)
 

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Setting Manager
@@ -23,10 +24,11 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtGui import QDialog, QDoubleSpinBox, QComboBox, QListWidget
+from builtins import str
+from qgis.PyQt.QtWidgets import QDialog, QDoubleSpinBox, QComboBox, QListWidget
 from qgis.gui import QgsCollapsibleGroupBox
 from ..setting_dialog import SettingDialog, UpdateMode
-from my_settings import MySettings
+from .my_settings import MySettings
 
 
 class MySettingsDialog(QDialog, SettingDialog):

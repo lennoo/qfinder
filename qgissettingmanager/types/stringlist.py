@@ -1,3 +1,4 @@
+from __future__ import print_function
 #-----------------------------------------------------------
 #
 # QGIS setting manager is a python module to easily manage read/write
@@ -27,8 +28,9 @@
 #---------------------------------------------------------------------
 
 
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QListWidget, QButtonGroup
+from builtins import range
+from qgis.PyQt.QtCore import Qt
+from qgis.PyQt.QtWidgets import QListWidget, QButtonGroup
 from qgis.core import QgsProject
 
 from ..setting import Setting
@@ -57,7 +59,8 @@ class Stringlist(Setting):
         elif type(widget) == QButtonGroup:
             return ButtonGroupStringListWidget(self, widget, self.options)
         else:
-            print type(widget)
+            # fix_print_with_import
+            print(type(widget))
             raise NameError("SettingManager does not handle %s widgets for integers for the moment (setting: %s)" %
                             (type(widget), self.name))
 

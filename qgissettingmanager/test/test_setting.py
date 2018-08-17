@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # -----------------------------------------------------------
 #
 # QGIS Setting Manager
@@ -28,12 +29,12 @@ from qgis.testing import unittest
 
 import nose2
 
-from my_settings import MySettings
+from .my_settings import MySettings
 
 
 class TestSetting(unittest.TestCase):
     def test_settings(self):
-        for s_name in MySettings().settings_cfg.keys():
+        for s_name in list(MySettings().settings_cfg.keys()):
             yield self.check_setting, s_name
 
     def check_setting(self, name):

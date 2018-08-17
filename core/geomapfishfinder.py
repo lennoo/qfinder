@@ -23,13 +23,14 @@
 #
 #---------------------------------------------------------------------
 
+from builtins import str
 import json
 from osgeo import ogr
 
 from qgis.core import QgsGeometry
 
 from quickfinder.core.httpfinder import HttpFinder
-from PyQt4 import QtCore
+from qgis.PyQt import QtCore
 
 class GeomapfishFinder(HttpFinder):
 

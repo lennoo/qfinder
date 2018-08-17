@@ -1,3 +1,4 @@
+from __future__ import print_function
 #-----------------------------------------------------------
 #
 # QGIS setting manager is a python module to easily manage read/write
@@ -26,7 +27,7 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtGui import QCheckBox
+from qgis.PyQt.QtWidgets import QCheckBox
 from qgis.core import QgsProject
 from ..setting import Setting
 from ..setting_widget import SettingWidget
@@ -47,7 +48,8 @@ class Bool(Setting):
         elif hasattr(widget, "isCheckable") and widget.isCheckable():
             return CheckableBoolWidget(self, widget, self.options)
         else:
-            print type(widget)
+            # fix_print_with_import
+            print(type(widget))
             raise NameError("SettingManager does not handle %s widgets for booleans at the moment (setting: %s)" %
                             (type(widget), self.name))
 

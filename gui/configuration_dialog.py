@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
@@ -25,22 +26,22 @@
 
 from os import remove, path
 
-from PyQt4.QtCore import QCoreApplication, QSettings
-from PyQt4.QtGui import (QDialog, QFileDialog, QMessageBox,
-                        QSortFilterProxyModel, QHeaderView)
+from qgis.PyQt.QtCore import QCoreApplication, QSettings
+from qgis.PyQt.QtWidgets import QDialog, QFileDialog, QMessageBox, QHeaderView
+from qgis.PyQt.QtCore import QSortFilterProxyModel
 
 from qgis.core import QgsProject
-from qgis.gui import QgsGenericProjectionSelector
+from qgis.gui import QgsProjectionSelectionTreeWidget
 
 from ..qgissettingmanager import SettingDialog
 from ..core.my_settings import MySettings
 from ..core.project_finder import ProjectFinder, create_FTS_file
-from project_search_dialog import ProjectSearchDialog
-from project_search_model import ProjectSearchModel, SearchIdRole
+from .project_search_dialog import ProjectSearchDialog
+from .project_search_model import ProjectSearchModel, SearchIdRole
 from ..core.postgis_finder import PostgisFinder
-from postgis_search_dialog import PostgisSearchDialog
-from postgis_search_model import PostgisSearchModel, SearchIdRole
-from refresh_dialog import RefreshDialog
+from .postgis_search_dialog import PostgisSearchDialog
+from .postgis_search_model import PostgisSearchModel, SearchIdRole
+from .refresh_dialog import RefreshDialog
 from ..ui.ui_configuration import Ui_Configuration
 
 
@@ -62,7 +63,8 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
         self.projectSearchTable.setModel(self.proxyModel)
 
         header = self.projectSearchTable.horizontalHeader()
-        header.setResizeMode(QHeaderView.ResizeToContents)
+#        header.setResizeMode(QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(QHeaderView.ResizeToContents)
 
         # open/create QuickFinder file
         self.createFileButton.clicked.connect(self.create_QFTS_file)
@@ -89,7 +91,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
         self.postgisSearchTable.setModel(self.postgisProxyModel)
 
         postgisSearchTableHeader = self.postgisSearchTable.horizontalHeader()
-        postgisSearchTableHeader.setResizeMode(QHeaderView.ResizeToContents)
+        postgisSearchTableHeader.setSectionResizeMode(QHeaderView.ResizeToContents)
 
         self.addPostgisSearchButton.clicked.connect(self.add_postgis_search)
         self.removePostgisSearchButton.clicked.connect(self.remove_postgis_search)
@@ -114,7 +116,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
 
     def close_and_control(self):
         self.project_finder.close()
-        for search in self.project_finder.searches.values():
+        for search in list(self.project_finder.searches.values()):
             if search.dateEvaluated is None:
                 box = QMessageBox(QMessageBox.Warning,
                                   "Quick Finder",
@@ -137,7 +139,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
 
     def create_QFTS_file(self):
         prjPath = QgsProject.instance().homePath()
-        filepath = QFileDialog.getSaveFileName(self, "Create Quickfinder index file", prjPath,
+        filepath, __ = QFileDialog.getSaveFileName(self, "Create Quickfinder index file", prjPath,
                                                "Quickfinder file (*.qfts)")
         if filepath:
             if filepath[-5:] != ".qfts":
@@ -150,7 +152,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
 
     def open_QFTS_file(self):
         prjPath = QgsProject.instance().homePath()
-        filepath = QFileDialog.getOpenFileName(self, "Open Quickfinder index file",
+        filepath, __ = QFileDialog.getOpenFileName(self, "Open Quickfinder index file",
                                                prjPath, "Quickfinder file (*.qfts)")
         if filepath:
             self.qftsfilepath.setText(filepath)
@@ -177,7 +179,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
         sel = self.selected_search_ids()
         if len(sel) != 1:
             return
-        if not self.project_search_model.searches.has_key(sel[0]):
+        if sel[0] not in self.project_search_model.searches:
             return
         search = self.project_search_model.searches[sel[0]]
         if search:
@@ -213,7 +215,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
         sel = self.selected_postgis_search_ids()
         if len(sel) != 1:
             return
-        if not self.postgis_search_model.searches.has_key(sel[0]):
+        if sel[0] not in self.postgis_search_model.searches:
             return
         search = self.postgis_search_model.searches[sel[0]]
         if search:
@@ -245,7 +247,7 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
         self.editPostgisSearchButton.setEnabled(n == 1)
 
     def geomapfishCrsButtonClicked(self):
-        dlg = QgsGenericProjectionSelector(self)
+        dlg = QgsProjectionSelectionTreeWidget(self)
         dlg.setMessage('Select GeoMapFish CRS')
         dlg.setSelectedAuthId(self.geomapfishCrs.text())
         if dlg.exec_():

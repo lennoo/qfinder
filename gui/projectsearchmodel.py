@@ -23,8 +23,9 @@
 #
 #---------------------------------------------------------------------
 
+from builtins import str
 from uuid import uuid1
-from PyQt4.QtCore import Qt, QAbstractItemModel, QModelIndex
+from qgis.PyQt.QtCore import Qt, QAbstractItemModel, QModelIndex
 from quickfinder.core.projectsearch import ProjectSearch
 
 LayerIdRole = Qt.UserRole + 1
@@ -42,12 +43,12 @@ class ProjectSearchModel(QAbstractItemModel):
     def fileChanged(self):
         self.beginResetModel()
         self.searches = self.projectFinder.searches
-        for search in self.searches.values():
+        for search in list(self.searches.values()):
             search.changed.connect(self.searchChanged)
         self.endResetModel()
 
     def addSearch(self, searchName, layer, expression, priority):
-        searchId = unicode(uuid1())
+        searchId = str(uuid1())
         srid = layer.crs().authid()
         projectSearch = ProjectSearch(searchId, searchName, layer.id(), layer.name(), expression, priority, srid)
         self.beginInsertRows(QModelIndex(), 0, 0)
@@ -101,7 +102,7 @@ class ProjectSearchModel(QAbstractItemModel):
         if index.row() >= len(self.searches):
             return None
 
-        search = self.searches.values()[index.row()]
+        search = list(self.searches.values())[index.row()]
         col = index.column()
 
         if role == Qt.DisplayRole:

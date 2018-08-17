@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
@@ -24,20 +25,22 @@
 #---------------------------------------------------------------------
 
 import os.path
-from PyQt4.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot
-from PyQt4.QtGui import QAction, QIcon, QColor, QDesktopServices, QMessageBox
-from qgis.gui import QgsRubberBand, QgsMessageBar
+from qgis.PyQt.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot
+from qgis.PyQt.QtWidgets import QAction, QMessageBox
+from qgis.PyQt.QtGui import QIcon, QColor, QDesktopServices
+from qgis.gui import QgsRubberBand
+from qgis.core import Qgis
 
-from core.project_finder import ProjectFinder, n_days_ago_iso_date
-from core.osm_finder import OsmFinder
-from core.geomapfish_finder import GeomapfishFinder
-from core.postgis_finder import PostgisFinder
-from core.my_settings import MySettings
-from gui.configuration_dialog import ConfigurationDialog
-from gui.refresh_dialog import RefreshDialog
-from gui.finder_box import FinderBox
+from .core.project_finder import ProjectFinder, n_days_ago_iso_date
+from .core.osm_finder import OsmFinder
+from .core.geomapfish_finder import GeomapfishFinder
+from .core.postgis_finder import PostgisFinder
+from .core.my_settings import MySettings
+from .gui.configuration_dialog import ConfigurationDialog
+from .gui.refresh_dialog import RefreshDialog
+from .gui.finder_box import FinderBox
 
-import resources_rc
+from . import resources_rc
 
 
 class QuickFinder(QObject):
@@ -96,9 +99,9 @@ class QuickFinder(QObject):
 
     def unload(self):
         """ Unload plugin """
-        for key in self.finders.keys():
+        for key in list(self.finders.keys()):
             self.finders[key].close()
-        for action in self.actions.itervalues():
+        for action in self.actions.values():
             self.iface.removePluginMenu(self.name, action)
         if self.toolbar:
             del self.toolbar
@@ -129,17 +132,17 @@ class QuickFinder(QObject):
         self.finders['osm'] = OsmFinder(self)
         self.finders['project'] = ProjectFinder(self)
         self.finders['postgis'] = PostgisFinder(self)
-        for key in self.finders.keys():
+        for key in list(self.finders.keys()):
             self.finders[key].message.connect(self.display_message)
         self.refresh_project()
 
     def _reload_finders(self):
-        for key in self.finders.keys():
+        for key in list(self.finders.keys()):
             self.finders[key].close()
             self.finders[key].reload()
         self.refresh_project()
 
-    @pyqtSlot(str, QgsMessageBar.MessageLevel)
+    @pyqtSlot(str, Qgis.MessageLevel)
     def display_message(self, message, level):
         self.iface.messageBar().pushMessage("QuickFinder", message, level)
 
@@ -168,7 +171,7 @@ class QuickFinder(QObject):
             return
         thresh_date = n_days_ago_iso_date(n_days)
         uptodate = True
-        for search in self.finders['project'].searches.values():
+        for search in list(self.finders['project'].searches.values()):
             if search.dateEvaluated <= thresh_date:
                 uptodate = False
                 break

@@ -26,7 +26,8 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtCore import QObject, pyqtSignal, QSettings
+from builtins import object
+from qgis.PyQt.QtCore import QObject, pyqtSignal, QSettings
 from qgis.core import QgsProject
 
 

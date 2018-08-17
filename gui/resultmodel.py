@@ -24,8 +24,9 @@
 #---------------------------------------------------------------------
 
 
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QStandardItemModel, QStandardItem, QFont, QIcon
+from builtins import range
+from qgis.PyQt.QtCore import Qt
+from qgis.PyQt.QtGui import QStandardItemModel, QStandardItem, QFont, QIcon
 
 
 class BaseItem(QStandardItem):
@@ -97,14 +98,14 @@ class ResultModel(QStandardItemModel):
 
     def truncateHistory(self, limit):
         root = self.invisibleRootItem()
-        for i in xrange(root.rowCount() - 1, limit - 1, -1):
+        for i in range(root.rowCount() - 1, limit - 1, -1):
             item = root.child(i)
             if not isinstance(item, CategoryItem):
                 root.removeRow(item.row())
 
     def clearResults(self):
         root = self.invisibleRootItem()
-        for i in xrange(root.rowCount() - 1, -1, -1):
+        for i in range(root.rowCount() - 1, -1, -1):
             item = root.child(i)
             if isinstance(item, CategoryItem):
                 root.removeRow(item.row())
@@ -112,7 +113,7 @@ class ResultModel(QStandardItemModel):
         self.items = []
 
     def _childItem(self, parent, name, createclass=None):
-        for i in xrange(0, parent.rowCount()):
+        for i in range(0, parent.rowCount()):
             child = parent.child(i)
             if isinstance(child, createclass) and child.name == name:
                 return child

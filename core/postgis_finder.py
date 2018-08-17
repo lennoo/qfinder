@@ -1,3 +1,5 @@
+from __future__ import print_function
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
@@ -23,17 +25,18 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtCore import QObject, QSettings
+from builtins import str
+from qgis.PyQt.QtCore import QObject, QSettings
 
 from qgis.core import QgsGeometry, QgsCredentials
 from qgis.gui import QgsMessageBar
 
-from my_settings import MySettings
+from .my_settings import MySettings
 
 import psycopg2
 import binascii
 
-from postgis_search import PostgisSearch
+from .postgis_search import PostgisSearch
 from .abstract_finder import AbstractFinder
 
 try:
@@ -41,7 +44,8 @@ try:
 except ImportError:
     # Older processing versions don't have this helper
     # PostGIS finder won't work.
-    print "Couldn't import helper from processing.tools.postgis - disabling PostgisFinder"
+    # fix_print_with_import
+    print("Couldn't import helper from processing.tools.postgis - disabling PostgisFinder")
 
 
 class PostgisFinder(AbstractFinder):
@@ -70,7 +74,7 @@ class PostgisFinder(AbstractFinder):
                 connectionUri = uri_from_name(dbConnectionName)
                 self.cur = self.connectToUri(connectionUri)
             except DbError as err:
-                self.message.emit(unicode(err), QgsMessageBar.WARNING)
+                self.message.emit(str(err), QgsMessageBar.WARNING)
             if self.cur:
                 self.find(to_find)
         self._finish()
@@ -107,7 +111,7 @@ class PostgisFinder(AbstractFinder):
         hasProjectSearches = len(self.settings.value("postgisSearches"))
         catFound = {}
         self._searches = self.readSearches()
-        for searchId, search in self._searches.iteritems():
+        for searchId, search in self._searches.items():
             if (not hasProjectSearches or
                     searchId in self.settings.value("postgisSearches")):
                 # Expression example:

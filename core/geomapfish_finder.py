@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
@@ -23,12 +24,13 @@
 #
 #---------------------------------------------------------------------
 
+from builtins import str
 import json
 import re
 from osgeo import ogr
-from PyQt4.QtCore import QByteArray
+from qgis.PyQt.QtCore import QByteArray
 from qgis.core import QgsGeometry
-from http_finder import HttpFinder
+from .http_finder import HttpFinder
 
 
 class GeomapfishFinder(HttpFinder):

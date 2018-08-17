@@ -24,8 +24,8 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtCore import pyqtSignal, QObject
-from qgis.core import QgsMapLayerRegistry
+from qgis.PyQt.QtCore import pyqtSignal, QObject
+from qgis.core import QgsProject
 
 
 class ProjectSearch(QObject):
@@ -75,7 +75,7 @@ class ProjectSearch(QObject):
             self._status = 'evaluated'
 
     def layer(self):
-        return QgsMapLayerRegistry.instance().mapLayer(self._layerid)
+        return QgsProject.instance().mapLayer(self._layerid)
 
 
     def edit(self, searchName, layerid, layerName, expression, geometryStorage, priority, srid):

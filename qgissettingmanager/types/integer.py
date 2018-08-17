@@ -1,3 +1,4 @@
+from __future__ import print_function
 #-----------------------------------------------------------
 #
 # QGIS setting manager is a python module to easily manage read/write
@@ -29,7 +30,7 @@
 
 # for combobox, the value corresponds to the index of the combobox
 
-from PyQt4.QtGui import QLineEdit, QSpinBox, QSlider, QComboBox
+from qgis.PyQt.QtWidgets import QLineEdit, QSpinBox, QSlider, QComboBox
 from qgis.core import QgsProject
 
 from ..setting import Setting
@@ -52,7 +53,8 @@ class Integer(Setting):
         elif type(widget) == QComboBox:
             return ComboBoxIntegerWidget(self, widget, self.options)
         else:
-            print type(widget)
+            # fix_print_with_import
+            print(type(widget))
             raise NameError("SettingManager does not handle %s widgets for integers for the moment (setting: %s)" %
                             (type(widget), self.name))
 

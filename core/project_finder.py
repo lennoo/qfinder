@@ -23,6 +23,7 @@
 #
 #---------------------------------------------------------------------
 
+from builtins import str
 import sqlite3
 import binascii
 from datetime import date, datetime, timedelta
@@ -30,13 +31,13 @@ from datetime import date, datetime, timedelta
 try:
     from collections import OrderedDict
 except ImportError:
-    from ordereddict import OrderedDict  # for Python < 2.7
+    from .ordereddict import OrderedDict  # for Python < 2.7
 
 from qgis.PyQt.QtCore import pyqtSignal, QCoreApplication, QFile, QDir
-from qgis.core import QgsMapLayerRegistry, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject
+from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject
 from qgis.gui import QgsMessageBar
-from project_search import ProjectSearch
-from abstract_finder import AbstractFinder
+from .project_search import ProjectSearch
+from .abstract_finder import AbstractFinder
 
 
 def create_FTS_file(filepath):
@@ -52,13 +53,14 @@ def create_FTS_file(filepath):
     try:
         cur.executescript(sql_unicode61)
     except sqlite3.OperationalError:
-        print "Could not use unicode61. You might have problems with accents. Please use a more recent QGIS version."
+        # fix_print_with_import
+        print("Could not use unicode61. You might have problems with accents. Please use a more recent QGIS version.")
         cur.executescript(sql)
 
     conn.close()
 
 def n_days_ago_iso_date(nDays):
-    return unicode( ( datetime.now() - timedelta(days=nDays) ).date().isoformat() )
+    return str( ( datetime.now() - timedelta(days=nDays) ).date().isoformat() )
 
 class ProjectFinder(AbstractFinder):
 
@@ -113,7 +115,8 @@ class ProjectFinder(AbstractFinder):
 
         # Database migration
         if self.getInfo("db_version") != self.version:
-            print "Run database migrations"
+            # fix_print_with_import
+            print("Run database migrations")
             self.runDatabaseMigration()
 
         self.isValid = True
@@ -164,7 +167,8 @@ class ProjectFinder(AbstractFinder):
                     cur.executescript(sql)
                     self.conn.commit()
                 except sqlite3.OperationalError:
-                    print "An error occured whild migrating database into %s in step %s" % (db_version, version)
+                    # fix_print_with_import
+                    print("An error occured whild migrating database into %s in step %s" % (db_version, version))
 
 
     def readSearches(self):
@@ -177,7 +181,8 @@ class ProjectFinder(AbstractFinder):
             for s in cur.execute(sql):
                 searches[s[0]] = ProjectSearch( s[0], s[1], s[2], s[3], s[4].replace("\\'","'"), s[5], s[6], s[7], s[8] )
         except:
-            print "Error while fetching searches"
+            # fix_print_with_import
+            print("Error while fetching searches")
         return searches
 
     def find(self, to_find):
@@ -203,14 +208,14 @@ class ProjectFinder(AbstractFinder):
         catFound = {}
         for row in cur.execute(sql, [to_find]):
             search_id, content, x, y, wkb_geom = row
-            if catFound.has_key(search_id):
+            if search_id in catFound:
                 if catFound[search_id] >= catLimit:
                     continue
                 catFound[search_id] += 1
             else:
                 catFound[search_id] = 1
 
-            if not self._searches.has_key(search_id):
+            if search_id not in self._searches:
                 continue
 
             gs = self._searches[search_id].geometryStorage
@@ -253,12 +258,12 @@ class ProjectFinder(AbstractFinder):
         searchId = projectSearch.searchId
         expression = projectSearch.expression
 
-        layer = QgsMapLayerRegistry.instance().mapLayer(layerid)
+        layer = QgsProject.instance().mapLayer(layerid)
         if not layer:
             projectSearch.status = "layer_deleted"
             return False, "Layer does not exist"
 
-        today = unicode(date.today().isoformat())
+        today = str(date.today().isoformat())
         expression_esc = expression.replace("'", "\\'")  # escape simple quotes for SQL insert
 
         cur = self.conn.cursor()
@@ -293,7 +298,8 @@ class ProjectFinder(AbstractFinder):
         return True, ""
 
     def optimize(self):
-        print "optimize"
+        # fix_print_with_import
+        print("optimize")
         cur = self.conn.cursor()
         cur.executescript("""INSERT INTO quickfinder_data(quickfinder_data) VALUES('rebuild');
                           INSERT INTO quickfinder_data(quickfinder_data) VALUES('optimize');
@@ -311,7 +317,7 @@ class ProjectFinder(AbstractFinder):
                 break
             self.recordingSearchProgress.emit(i)
             i += 1
-            evaluated = unicode(qgsExpression.evaluate(f))
+            evaluated = str(qgsExpression.evaluate(f))
             if qgsExpression.hasEvalError():
                 continue
             if f.geometry() is None or f.geometry().centroid() is None:

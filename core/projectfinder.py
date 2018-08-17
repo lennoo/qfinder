@@ -1,3 +1,5 @@
+from __future__ import print_function
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
@@ -23,6 +25,7 @@
 #
 #---------------------------------------------------------------------
 
+from builtins import str
 import sqlite3
 import binascii
 from datetime import date, datetime, timedelta
@@ -30,10 +33,10 @@ from datetime import date, datetime, timedelta
 try:
     from collections import OrderedDict
 except ImportError:
-    from ordereddict import OrderedDict  # for Python < 2.7
+    from .ordereddict import OrderedDict  # for Python < 2.7
 
-from PyQt4.QtCore import pyqtSignal, QCoreApplication
-from qgis.core import QgsMapLayerRegistry, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem
+from qgis.PyQt.QtCore import pyqtSignal, QCoreApplication
+from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem
 from qgis.gui import QgsMessageBar
 from quickfinder.core.projectsearch import ProjectSearch
 from quickfinder.core.abstractfinder import AbstractFinder
@@ -52,13 +55,14 @@ def createFTSfile(filepath):
     try:
         cur.executescript(sql_unicode61)
     except sqlite3.OperationalError:
-        print "Could not use unicode61. You might have problems with accents. Please use a more recent QGIS version."
+        # fix_print_with_import
+        print("Could not use unicode61. You might have problems with accents. Please use a more recent QGIS version.")
         cur.executescript(sql)
 
     conn.close()
 
 def nDaysAgoIsoDate(nDays):
-    return unicode( ( datetime.now() - timedelta(days=nDays) ).date().isoformat() )
+    return str( ( datetime.now() - timedelta(days=nDays) ).date().isoformat() )
 
 class ProjectFinder(AbstractFinder):
 
@@ -161,14 +165,14 @@ class ProjectFinder(AbstractFinder):
         catFound = {}
         for row in cur.execute(sql, [toFind]):
             search_id, content, x, y, wkb_geom = row
-            if catFound.has_key(search_id):
+            if search_id in catFound:
                 if catFound[search_id] >= catLimit:
                     continue
                 catFound[search_id] += 1
             else:
                 catFound[search_id] = 1
 
-            if not self._searches.has_key(search_id):
+            if search_id not in self._searches:
                 continue
 
             geometry = QgsGeometry()
@@ -205,12 +209,12 @@ class ProjectFinder(AbstractFinder):
         searchId = projectSearch.searchId
         expression = projectSearch.expression
 
-        layer = QgsMapLayerRegistry.instance().mapLayer(layerid)
+        layer = QgsProject.instance().mapLayer(layerid)
         if not layer:
             projectSearch.status = "layer_deleted"
             return False, "Layer does not exist"
 
-        today = unicode(date.today().isoformat())
+        today = str(date.today().isoformat())
         expression_esc = expression.replace("'", "\\'")  # escape simple quotes for SQL insert
 
         cur = self.conn.cursor()
@@ -237,7 +241,8 @@ class ProjectFinder(AbstractFinder):
         return True, ""
 
     def optimize(self):
-        print "optimize"
+        # fix_print_with_import
+        print("optimize")
         cur = self.conn.cursor()
         cur.executescript("""INSERT INTO quickfinder_data(quickfinder_data) VALUES('rebuild');
                           INSERT INTO quickfinder_data(quickfinder_data) VALUES('optimize');
@@ -255,7 +260,7 @@ class ProjectFinder(AbstractFinder):
                 break
             self.recordingSearchProgress.emit(i)
             i += 1
-            evaluated = unicode(qgsExpression.evaluate(f))
+            evaluated = str(qgsExpression.evaluate(f))
             if qgsExpression.hasEvalError():
                 continue
             if f.geometry() is None or f.geometry().centroid() is None:

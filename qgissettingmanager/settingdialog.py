@@ -1,3 +1,5 @@
+from __future__ import print_function
+from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS setting manager is a python module to easily manage read/write
@@ -26,12 +28,13 @@
 #
 #---------------------------------------------------------------------
 
-from PyQt4.QtGui import QDialog, QWidget, QButtonGroup
+from builtins import object
+from qgis.PyQt.QtWidgets import QDialog, QWidget, QButtonGroup
 
-from settingmanager import Debug
+from .settingmanager import Debug
 
 
-class SettingDialog():
+class SettingDialog(object):
     def __init__(self, settingManager, set_values_on_dialog_accepted=True, set_value_on_widget_update=False):
         if isinstance(self, QDialog) and set_values_on_dialog_accepted:
             self.accepted.connect(self.accept_dialog)
@@ -42,7 +45,8 @@ class SettingDialog():
                 widget = self.findChild(objectClass, setting.name)
                 if widget is not None:
                     if Debug:
-                        print "Widget found: %s" % setting.name
+                        # fix_print_with_import
+                        print("Widget found: %s" % setting.name)
                     setting.setWidget(widget)
                     if set_value_on_widget_update:
                         setting.set_value_on_widget_update_signal()
