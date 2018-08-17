@@ -2,9 +2,10 @@
 
 ## Description
 
+This plugin port [quick_find] (https://github.com/3nids/quickfinder) from qgis2 to qgis3(3.2). So it works with PyQt5.
+
 You can select, pan, scale and open form for the returned features.
 
-See demo on [youtube](http://www.youtube.com/v/bsqMLMqlCYQ&hd=1) (this version is 1.0, some features have been added since)
 
 ## Authors
 
