@@ -105,5 +105,3 @@ class Ui_PostgisSearch(object):
         self.project.setText(_translate("PostgisSearch", "Project", None))
         self.FieldNameLabel.setText(_translate("PostgisSearch", "SQL Query", None))
         self.label.setText(_translate("PostgisSearch", "Search name", None))
-
-from . import resources_rc

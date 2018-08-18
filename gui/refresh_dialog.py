@@ -22,6 +22,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 #---------------------------------------------------------------------
+import time
+from qgis.core import QgsMessageLog
 
 from qgis.PyQt.QtCore import QCoreApplication
 from qgis.PyQt.QtWidgets import QDialog
@@ -90,7 +92,7 @@ class RefreshDialog(QDialog, Ui_Refresh):
             # user stop
             if self.stop:
                 break
-
+            
             # delete search if layer has been deleted
             layer = search.layer()
             if layer is None and removeDeleted:
@@ -114,6 +116,8 @@ class RefreshDialog(QDialog, Ui_Refresh):
                     continue
 
             self.currentLayerLength = layer.featureCount()
+#            QgsMessageLog.logMessage("Your plugin code might have some problems")
+#            time.sleep(10)
             ok, message = self.project_finder.recordSearch(search, False)
 
         self.project_finder.optimize()

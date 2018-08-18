@@ -22,6 +22,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 #---------------------------------------------------------------------
+import time
+from qgis.core import QgsMessageLog
 
 from builtins import str
 import sqlite3
@@ -266,6 +268,7 @@ class ProjectFinder(AbstractFinder):
         today = str(date.today().isoformat())
         expression_esc = expression.replace("'", "\\'")  # escape simple quotes for SQL insert
 
+
         cur = self.conn.cursor()
 
         # always remove existing search with same id
@@ -307,33 +310,30 @@ class ProjectFinder(AbstractFinder):
         self.conn.commit()
 
     def expressionIterator(self, layer, expression, geometryStorage):
+#      for i in [1,2,3]:
+#        yield ( unicode(i),"120.77976","27.84639","0101000000a7ae7c96e7315e4054a9d903add83b40")
         featReq = QgsFeatureRequest()
         qgsExpression = QgsExpression(expression)
         self.stopLoop = False
         i = 0
-        context = QgsExpressionContext()
-        scope = QgsExpressionContextScope()
         for f in layer.getFeatures(featReq):
             QCoreApplication.processEvents()
             if self.stopLoop:
                 break
             self.recordingSearchProgress.emit(i)
             i += 1
+            context = QgsExpressionContext()
+            scope = QgsExpressionContextScope()
             scope.setFeature(f)
             context.appendScope(scope)
-            evaluated = str(qgsExpression.evaluate())
+            evaluated = qgsExpression.evaluate(context)
             if qgsExpression.hasEvalError():
                 continue
             if f.geometry() is None or f.geometry().centroid() is None:
                 continue
             centroid = f.geometry().centroid().asPoint()
-            if geometryStorage == 'wkb':
-                geom = binascii.b2a_hex(f.geometry().asWkb())
-            elif geometryStorage == 'wkt':
-                geom = f.geometry().exportToWkt()
-            else:
-                geom = f.geometry().boundingBox().asWktPolygon()
-            yield ( evaluated, centroid.x(), centroid.y(), geom )
+            wkb = binascii.b2a_hex(f.geometry().asWkb())
+            yield( evaluated, centroid.x(), centroid.y(), wkb)
 
     def stop_record(self):
         self.stopLoop = True

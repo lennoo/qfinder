@@ -32,9 +32,9 @@ from qgis.gui import QgsRubberBand
 from qgis.core import Qgis
 
 from .core.project_finder import ProjectFinder, n_days_ago_iso_date
-from .core.osm_finder import OsmFinder
-from .core.geomapfish_finder import GeomapfishFinder
-from .core.postgis_finder import PostgisFinder
+#from .core.osm_finder import OsmFinder
+#from .core.geomapfish_finder import GeomapfishFinder
+#from .core.postgis_finder import PostgisFinder
 from .core.my_settings import MySettings
 from .gui.configuration_dialog import ConfigurationDialog
 from .gui.refresh_dialog import RefreshDialog
@@ -81,15 +81,9 @@ class QuickFinder(QObject):
             self.iface.mainWindow())
         self.actions['showSettings'].triggered.connect(self.show_settings)
         self.iface.addPluginToMenu(self.name, self.actions['showSettings'])
-        self.actions['help'] = QAction(
-            QIcon(":/plugins/quickfinder/icons/help.svg"),
-            self.tr("Help"),
-            self.iface.mainWindow())
-        self.actions['help'].triggered.connect(
-            lambda: QDesktopServices().openUrl(
-                QUrl("http://3nids.github.io/quickfinder")))
-        self.iface.addPluginToMenu(self.name, self.actions['help'])
         self._init_toolbar()
+
+        # set selection area sytle and color
         self.rubber = QgsRubberBand(self.iface.mapCanvas())
         self.rubber.setColor(QColor(255, 255, 50, 200))
         self.rubber.setIcon(self.rubber.ICON_CIRCLE)
@@ -128,10 +122,10 @@ class QuickFinder(QObject):
         self.toolbar.setVisible(True)
 
     def _init_finders(self):
-        self.finders['geomapfish'] = GeomapfishFinder(self)
-        self.finders['osm'] = OsmFinder(self)
+#        self.finders['geomapfish'] = GeomapfishFinder(self)
+#        self.finders['osm'] = OsmFinder(self)
         self.finders['project'] = ProjectFinder(self)
-        self.finders['postgis'] = PostgisFinder(self)
+#        self.finders['postgis'] = PostgisFinder(self)
         for key in list(self.finders.keys()):
             self.finders[key].message.connect(self.display_message)
         self.refresh_project()
@@ -147,6 +141,9 @@ class QuickFinder(QObject):
         self.iface.messageBar().pushMessage("QuickFinder", message, level)
 
     def show_settings(self):
+#        self.win = ConfigurationDialog()
+#        self.win.show()
+        #ConfigurationDialog().show()
         if ConfigurationDialog().exec_():
             self._reload_finders()
 

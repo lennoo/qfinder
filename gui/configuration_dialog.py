@@ -38,9 +38,6 @@ from ..core.my_settings import MySettings
 from ..core.project_finder import ProjectFinder, create_FTS_file
 from .project_search_dialog import ProjectSearchDialog
 from .project_search_model import ProjectSearchModel, SearchIdRole
-from ..core.postgis_finder import PostgisFinder
-from .postgis_search_dialog import PostgisSearchDialog
-from .postgis_search_model import PostgisSearchModel, SearchIdRole
 from .refresh_dialog import RefreshDialog
 from ..ui.ui_configuration import Ui_Configuration
 
@@ -77,33 +74,6 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
         self.editSearchButton.clicked.connect(self.edit_project_search)
         self.refreshButton.clicked.connect(self.refresh_project_search)
         self.projectSearchTable.selectionModel().selectionChanged.connect(self.enableButtons)
-
-        # postgis search
-        self.postgis_finder = PostgisFinder(self)
-        # Disable page when initialization wasn't successful
-        self.postgis.setEnabled(self.postgis_finder.active())
-
-        # postgis table model
-        self.postgis_search_model = PostgisSearchModel(self.postgis_finder)
-
-        self.postgisProxyModel = QSortFilterProxyModel(self)
-        self.postgisProxyModel.setSourceModel(self.postgis_search_model)
-        self.postgisSearchTable.setModel(self.postgisProxyModel)
-
-        postgisSearchTableHeader = self.postgisSearchTable.horizontalHeader()
-        postgisSearchTableHeader.setSectionResizeMode(QHeaderView.ResizeToContents)
-
-        self.addPostgisSearchButton.clicked.connect(self.add_postgis_search)
-        self.removePostgisSearchButton.clicked.connect(self.remove_postgis_search)
-        self.editPostgisSearchButton.clicked.connect(self.edit_postgis_search)
-        self.postgisSearchTable.selectionModel().selectionChanged.connect(self.enableButtons)
-
-        # postgis connection ComboBox
-        self.postgisConnection.addItems(self.dbConnectionList())
-
-        # geomapfish
-        self.geomapfishCrsButton.clicked.connect(self.geomapfishCrsButtonClicked)
-
         self.enableButtons()
 
     def reject(self):
@@ -194,8 +164,6 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
             selectedSearchId.append(self.proxyModel.data(idx, SearchIdRole))
         return selectedSearchId
 
-    def add_postgis_search(self):
-        PostgisSearchDialog(self.postgis_finder, self.postgis_search_model).exec_()
 
     def remove_postgis_search(self):
         sel = self.selected_postgis_search_ids()
@@ -211,21 +179,6 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
             return
         self.postgis_search_model.removeSearches(sel)
 
-    def edit_postgis_search(self):
-        sel = self.selected_postgis_search_ids()
-        if len(sel) != 1:
-            return
-        if sel[0] not in self.postgis_search_model.searches:
-            return
-        search = self.postgis_search_model.searches[sel[0]]
-        if search:
-            PostgisSearchDialog(self.postgis_finder, self.postgis_search_model, search).exec_()
-
-    def selected_postgis_search_ids(self):
-        selectedSearchId = []
-        for idx in self.postgisSearchTable.selectionModel().selectedRows():
-            selectedSearchId.append(self.postgisProxyModel.data(idx, SearchIdRole))
-        return selectedSearchId
 
     def dbConnectionList(self):
         connection_names = []
@@ -242,9 +195,6 @@ class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):
         self.editSearchButton.setEnabled(n == 1)
         self.projectSearchButtonsWidget.setEnabled(self.project_finder.isValid)
 
-        n = len(self.selected_postgis_search_ids())
-        self.removePostgisSearchButton.setEnabled(n > 0)
-        self.editPostgisSearchButton.setEnabled(n == 1)
 
     def geomapfishCrsButtonClicked(self):
         dlg = QgsProjectionSelectionTreeWidget(self)

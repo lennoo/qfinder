@@ -122,4 +122,3 @@ class Ui_ProjectSearch(object):
         self.geometryStorageCombo.setItemText(2, _translate("ProjectSearch", "extent", None))
 
 from qgis.gui import QgsFieldExpressionWidget, QgsMapLayerComboBox
-from . import resources_rc

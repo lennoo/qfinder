@@ -2,8 +2,7 @@
 
 ## Description
 
-This plugin port [quick_find](https://github.com/3nids/quickfinder) from qgis2 to qgis3(3.2). It can only search and locate feature using existing .qfts file. If editing project search setting, the main QGIS application will crash.
-
+This plugin port [quick_find](https://github.com/3nids/quickfinder) from qgis2 to qgis3(3.2) without web search.
 You can select, pan, scale and open form for the returned features.
 
 
