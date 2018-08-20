@@ -29,7 +29,7 @@ from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop
 from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout
 from qgis.PyQt.QtGui import QIcon, QColor, QCursor
 
-from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject
+from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog
 from qgis.gui import QgsRubberBand
 
 from ..core.my_settings import MySettings
@@ -118,12 +118,23 @@ class FinderBox(QComboBox):
             self.clearSelection()
         QComboBox.keyPressEvent(self, event)
 
+    def zoom_lonlat(self, to_find):
+        import re
+        m = re.match(r'(\d+)\s+(\d+)',to_find)
+        if not m :
+            return False
+        s = "{0}-{1}".format(m.group(1), m.group(2))
+        QgsMessageLog.logMessage(s)
+        return False
+
     def search(self):
         if self.running:
             return
 
         to_find = self.lineEdit().text()
         if not to_find or to_find == '':
+            return
+        if self.zoom_lonlat(to_find):
             return
 
         self.running = True

@@ -310,8 +310,6 @@ class ProjectFinder(AbstractFinder):
         self.conn.commit()
 
     def expressionIterator(self, layer, expression, geometryStorage):
-#      for i in [1,2,3]:
-#        yield ( unicode(i),"120.77976","27.84639","0101000000a7ae7c96e7315e4054a9d903add83b40")
         featReq = QgsFeatureRequest()
         qgsExpression = QgsExpression(expression)
         self.stopLoop = False
@@ -326,14 +324,19 @@ class ProjectFinder(AbstractFinder):
             scope = QgsExpressionContextScope()
             scope.setFeature(f)
             context.appendScope(scope)
-            evaluated = qgsExpression.evaluate(context)
+            evaluated = unicode(qgsExpression.evaluate(context))
             if qgsExpression.hasEvalError():
                 continue
             if f.geometry() is None or f.geometry().centroid() is None:
                 continue
             centroid = f.geometry().centroid().asPoint()
-            wkb = binascii.b2a_hex(f.geometry().asWkb())
-            yield( evaluated, centroid.x(), centroid.y(), wkb)
+            if geometryStorage == 'wkb':
+                geom = binascii.b2a_hex(f.geometry().asWkb())
+            elif geometryStorage == 'wkt':
+                geom = f.geometry().exportToWkt()
+            else:
+                geom = f.geometry().boundingBox().asWktPolygon()
+            yield( evaluated, centroid.x(), centroid.y(), geom)
 
     def stop_record(self):
         self.stopLoop = True
