@@ -26,11 +26,12 @@ from __future__ import absolute_import
 
 from builtins import range
 from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop
-from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout
-from qgis.PyQt.QtGui import QIcon, QColor, QCursor
+from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout 
+from qgis.PyQt.QtGui import QIcon, QColor, QCursor 
 
-from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog
-from qgis.gui import QgsRubberBand
+from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes
+from qgis.core import *
+from qgis.gui import QgsRubberBand, QgsVertexMarker
 
 from ..core.my_settings import MySettings
 from .result_model import ResultModel, GroupItem, ResultItem
@@ -47,6 +48,7 @@ class FinderBox(QComboBox):
     def __init__(self, finders, iface, parent=None):
         self.iface = iface
         self.mapCanvas = iface.mapCanvas()
+        self.marker = None
         self.rubber = QgsRubberBand(self.mapCanvas)
         self.rubber.setColor(QColor(255, 255, 50, 200))
         self.rubber.setIcon(self.rubber.ICON_CIRCLE)
@@ -104,9 +106,15 @@ class FinderBox(QComboBox):
             self.iface.mapCanvas().scene().removeItem(self.rubber)
             del self.rubber
 
+    #clear marker that the lonlat seted
+    def clearMarker(self):
+        self.iface.mapCanvas().scene().removeItem(self.marker)
+        self.marker = None
+
     def clearSelection(self):
         self.result_model.setSelected(None, self.result_view.palette())
         self.rubber.reset()
+        #self.clearMarker()
 
     def clear(self):
         self.clearSelection()
@@ -116,16 +124,44 @@ class FinderBox(QComboBox):
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Escape:
             self.clearSelection()
+            self.clearMarker()
         QComboBox.keyPressEvent(self, event)
 
     def zoom_lonlat(self, to_find):
         import re
-        m = re.match(r'(\d+)\s+(\d+)',to_find)
+        m = re.match(r'(?P<lon>-?\d*(.\d+))\s+(?P<lat>-?\d*(.\d+))',to_find)
         if not m :
             return False
-        s = "{0}-{1}".format(m.group(1), m.group(2))
-        QgsMessageLog.logMessage(s)
-        return False
+        x = float(m.group('lon'))
+        y = float(m.group('lat'))
+
+        canvas = self.iface.mapCanvas()
+        currExt = canvas.extent()
+        canvasCenter = currExt.center()
+        dx = float(x) - canvasCenter.x()
+        dy = float(y) - canvasCenter.y()
+		
+        xMin = currExt.xMinimum() + dx
+        xMax = currExt.xMaximum() + dx
+        yMin = currExt.yMinimum() + dy
+        yMax = currExt.yMaximum() + dy
+
+        rect = QgsRectangle(xMin,yMin,xMax,yMax)
+        canvas.setExtent(rect)
+        pt = QgsPointXY(float(x),float(y))
+        self.marker = QgsVertexMarker(canvas)
+        self.marker.setCenter(pt)
+        self.marker.setIconSize(18)
+        self.marker.setPenWidth(2)
+        self.marker.setIconType(QgsVertexMarker.ICON_CROSS)
+#        rb = self.rubber
+#        rb.reset(pt.wkbType())
+#        rb.addPoint(pt)
+        canvas.refresh()
+        #s = '{0}-{1}'.format(m.group('lon'), m.group('lat'))
+#        s = '{0}-{1}'.format(dx,dy)
+#        QgsMessageLog.logMessage(s)
+        return True
 
     def search(self):
         if self.running:
@@ -134,8 +170,8 @@ class FinderBox(QComboBox):
         to_find = self.lineEdit().text()
         if not to_find or to_find == '':
             return
-        if self.zoom_lonlat(to_find):
-            return
+        if not self.zoom_lonlat(to_find):
+            self.showPopup()
 
         self.running = True
         self.search_started.emit()
@@ -144,7 +180,6 @@ class FinderBox(QComboBox):
         self.result_model.clearResults()
         self.result_model.truncateHistory(MySettings().value("historyLength"))
         self.result_model.setLoading(True)
-        self.showPopup()
 
         QCoreApplication.processEvents(QEventLoop.ExcludeUserInputEvents)
 
