@@ -37,8 +37,9 @@ from .abstract_finder import AbstractFinder
 
 class HttpFinder(AbstractFinder):
 
-    def __init__(self, parent):
-        super(HttpFinder, self).__init__(parent)
+#    def __init__(self, parent):
+#        super(HttpFinder, self).__init__(parent)
+    def __init__(self):
         self.asynchonous = True
         self.reply = None
 
@@ -59,6 +60,7 @@ class HttpFinder(AbstractFinder):
                 request.setRawHeader(key, value)
             self.reply = QgsNetworkAccessManager.instance().get(request)
             self.reply.finished.connect(self.reply_finished)
+            print('request')
 
         else:
             response = urllib.request.urlopen(self.url + '?' + urllib.parse.urlencode(params))
@@ -72,9 +74,11 @@ class HttpFinder(AbstractFinder):
         self._finish()
 
     def reply_finished(self):
+        print('reply')
         error = self.reply.error()
         if error == QNetworkReply.NoError:
             response_text = self.reply.readAll().data()
+            print(response)
             QgsLogger.debug('Response: {}'.format(response_text))
             try:
                 data = json.loads(response_text)

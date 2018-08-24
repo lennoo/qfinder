@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
@@ -24,15 +23,19 @@ from __future__ import absolute_import
 #
 #---------------------------------------------------------------------
 
+import json
 from builtins import range
-from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop
-from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout 
+from urllib import request, parse
+from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop, QUrl
 from qgis.PyQt.QtGui import QIcon, QColor, QCursor 
+from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout 
+from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply
 
 from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes
 from qgis.core import *
 from qgis.gui import QgsRubberBand, QgsVertexMarker
 
+from ..core.http_finder import HttpFinder
 from ..core.my_settings import MySettings
 from .result_model import ResultModel, GroupItem, ResultItem
 
@@ -108,7 +111,7 @@ class FinderBox(QComboBox):
 
     #clear marker that the lonlat seted
     def clearMarker(self):
-        self.iface.mapCanvas().scene().removeItem(self.marker)
+        self.mapCanvas.scene().removeItem(self.marker)
         self.marker = None
 
     def clearSelection(self):
@@ -126,16 +129,21 @@ class FinderBox(QComboBox):
             self.clearSelection()
             self.clearMarker()
         QComboBox.keyPressEvent(self, event)
-
-    def zoom_lonlat(self, to_find):
+    
+    def lnglatFinder(self, to_find):
         import re
         m = re.match(r'(?P<lon>-?\d*(.\d+))\s+(?P<lat>-?\d*(.\d+))',to_find)
         if not m :
             return False
         x = float(m.group('lon'))
         y = float(m.group('lat'))
+        return self.zoomLnglat(x,y)
 
-        canvas = self.iface.mapCanvas()
+    def zoomLnglat(self, lng, lat):
+        x, y = lng, lat
+        print(f"{x},{y}")
+
+        canvas = self.mapCanvas
         currExt = canvas.extent()
         canvasCenter = currExt.center()
         dx = float(x) - canvasCenter.x()
@@ -154,23 +162,37 @@ class FinderBox(QComboBox):
         self.marker.setIconSize(18)
         self.marker.setPenWidth(2)
         self.marker.setIconType(QgsVertexMarker.ICON_CROSS)
-#        rb = self.rubber
-#        rb.reset(pt.wkbType())
-#        rb.addPoint(pt)
         canvas.refresh()
-        #s = '{0}-{1}'.format(m.group('lon'), m.group('lat'))
-#        s = '{0}-{1}'.format(dx,dy)
-#        QgsMessageLog.logMessage(s)
         return True
 
+    def geocodeFinder(self, to_finder):
+        print(to_finder[:2])
+        if not to_finder[:2] == 'b:':
+            return False
+            
+        from .baidukey import apikey
+        address = to_finder[2:] 
+        url = 'http://api.map.baidu.com/geocoder/v2/?address=' + parse.quote(address)+'&output=json&ak='+ apikey
+        response = request.urlopen(url)
+        content = response.read()
+        data = json.loads(content)
+        print(data)
+        lng, lat = (data['result']['location']['lng'], data['result']['location']['lat'])
+        from .cood_trans import bd09_to_wgs84
+        lng, lat = bd09_to_wgs84(lng, lat)
+        print(f'{lng}-{lat}')
+        return self.zoomLnglat(lng, lat)
+
+
     def search(self):
+      #  self.geocode()
         if self.running:
             return
 
         to_find = self.lineEdit().text()
         if not to_find or to_find == '':
             return
-        if not self.zoom_lonlat(to_find):
+        if not (self.lnglatFinder(to_find) or self.geocodeFinder(to_find)):
             self.showPopup()
 
         self.running = True
