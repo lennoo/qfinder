@@ -172,7 +172,11 @@ class FinderBox(QComboBox):
             
         from .baidukey import apikey
         address = to_finder[2:] 
-        url = 'http://api.map.baidu.com/geocoder/v2/?address=' + parse.quote(address)+'&output=json&ak='+ apikey
+        url = MySettings().value("baiduUrl")
+        print(url)
+        url = url + parse.quote(address)
+        print(url)
+
         response = request.urlopen(url)
         content = response.read()
         data = json.loads(content)

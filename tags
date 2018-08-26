@@ -1,0 +1,812 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AbstractFinder	.\core\abstract_finder.py	/^class AbstractFinder(QObject):$/;"	c
+AbstractFinder	.\core\http_finder.py	/^from .abstract_finder import AbstractFinder$/;"	i
+AbstractFinder	.\core\postgis_finder.py	/^from .abstract_finder import AbstractFinder$/;"	i
+AbstractFinder	.\core\project_finder.py	/^from .abstract_finder import AbstractFinder$/;"	i
+BaseItem	.\gui\result_model.py	/^class BaseItem(QStandardItem):$/;"	c
+Bool	.\core\my_settings.py	/^from ..qgissettingmanager import SettingManager, Scope, Bool, String, Integer, Stringlist$/;"	i
+Bool	.\qgissettingmanager\types\__init__.py	/^from .bool import Bool$/;"	i
+Bool	.\qgissettingmanager\types\bool.py	/^class Bool(Setting):$/;"	c
+ButtonGroupStringListWidget	.\qgissettingmanager\types\stringlist.py	/^class ButtonGroupStringListWidget(SettingWidget):$/;"	c
+ButtonGroupStringWidget	.\qgissettingmanager\types\string.py	/^class ButtonGroupStringWidget(SettingWidget):$/;"	c
+CategoryItem	.\gui\result_model.py	/^class CategoryItem(GroupItem):$/;"	c
+CheckBoxBoolWidget	.\qgissettingmanager\types\bool.py	/^class CheckBoxBoolWidget(SettingWidget):$/;"	c
+CheckableBoolWidget	.\qgissettingmanager\types\bool.py	/^class CheckableBoolWidget(SettingWidget):$/;"	c
+Color	.\qgissettingmanager\types\__init__.py	/^from .color import Color$/;"	i
+Color	.\qgissettingmanager\types\color.py	/^class Color(Setting):$/;"	c
+ComboBoxIntegerWidget	.\qgissettingmanager\types\integer.py	/^class ComboBoxIntegerWidget(SettingWidget):$/;"	c
+ComboStringWidget	.\qgissettingmanager\types\string.py	/^class ComboStringWidget(SettingWidget):$/;"	c
+ConfigurationDialog	.\gui\configuration_dialog.py	/^class ConfigurationDialog(QDialog, Ui_Configuration, SettingDialog):$/;"	c
+ConfigurationDialog	.\quickfinder_plugin.py	/^from .gui.configuration_dialog import ConfigurationDialog$/;"	i
+DbError	.\core\postgis_finder.py	/^    from processing.tools.postgis import uri_from_name, DbError$/;"	i
+Debug	.\core\printdebug.py	/^Debug = True$/;"	v
+Debug	.\qgissettingmanager\setting_dialog.py	/^from .setting_manager import Debug$/;"	i
+Debug	.\qgissettingmanager\setting_manager.py	/^Debug = False$/;"	v
+DialogAccept	.\qgissettingmanager\setting_dialog.py	/^    DialogAccept = 2$/;"	v	class:UpdateMode
+DictMixin	.\core\ordereddict.py	/^from UserDict import DictMixin$/;"	i
+Double	.\qgissettingmanager\types\__init__.py	/^from .double import Double$/;"	i
+Double	.\qgissettingmanager\types\double.py	/^class Double(Setting):$/;"	c
+DoubleSpinBoxDoubleWidget	.\qgissettingmanager\types\double.py	/^class DoubleSpinBoxDoubleWidget(SettingWidget):$/;"	c
+FieldComboStringWidget	.\qgissettingmanager\types\string.py	/^class FieldComboStringWidget(SettingWidget):$/;"	c
+FinderBox	.\gui\finder_box.py	/^class FinderBox(QComboBox):$/;"	c
+FinderBox	.\quickfinder_plugin.py	/^from .gui.finder_box import FinderBox$/;"	i
+Geocoding	.\gui\cood_trans.py	/^class Geocoding:$/;"	c
+GeomapfishFinder	.\core\geomapfish_finder.py	/^class GeomapfishFinder(HttpFinder):$/;"	c
+Global	.\qgissettingmanager\scope.py	/^    Global = 2$/;"	v	class:Scope
+Global	.\qgissettingmanager\setting.py	/^    Global = 2$/;"	v	class:Scope
+GroupItem	.\gui\finder_box.py	/^from .result_model import ResultModel, GroupItem, ResultItem$/;"	i
+GroupItem	.\gui\result_model.py	/^class GroupItem(BaseItem):$/;"	c
+HttpFinder	.\core\geomapfish_finder.py	/^from .http_finder import HttpFinder$/;"	i
+HttpFinder	.\core\http_finder.py	/^class HttpFinder(AbstractFinder):$/;"	c
+HttpFinder	.\core\osm_finder.py	/^from .http_finder import HttpFinder$/;"	i
+HttpFinder	.\gui\finder_box.py	/^from ..core.http_finder import HttpFinder$/;"	i
+Integer	.\core\my_settings.py	/^from ..qgissettingmanager import SettingManager, Scope, Bool, String, Integer, Stringlist$/;"	i
+Integer	.\qgissettingmanager\types\__init__.py	/^from .integer import Integer$/;"	i
+Integer	.\qgissettingmanager\types\integer.py	/^class Integer(Setting):$/;"	c
+LayerIdRole	.\gui\project_search_model.py	/^LayerIdRole = Qt.UserRole + 1$/;"	v
+LayerItem	.\gui\result_model.py	/^class LayerItem(GroupItem):$/;"	c
+LineEditDoubleWidget	.\qgissettingmanager\types\double.py	/^class LineEditDoubleWidget(SettingWidget):$/;"	c
+LineEditIntegerWidget	.\qgissettingmanager\types\integer.py	/^class LineEditIntegerWidget(SettingWidget):$/;"	c
+LineEditStringWidget	.\qgissettingmanager\types\string.py	/^class LineEditStringWidget(SettingWidget):$/;"	c
+ListStringListWidget	.\qgissettingmanager\types\stringlist.py	/^class ListStringListWidget(SettingWidget):$/;"	c
+MapLayerComboStringWidget	.\qgissettingmanager\types\string.py	/^class MapLayerComboStringWidget(SettingWidget):$/;"	c
+MySettings	.\core\abstract_finder.py	/^from .my_settings import MySettings$/;"	i
+MySettings	.\core\my_settings.py	/^class MySettings(SettingManager):$/;"	c
+MySettings	.\core\postgis_finder.py	/^from .my_settings import MySettings$/;"	i
+MySettings	.\gui\configuration_dialog.py	/^from ..core.my_settings import MySettings$/;"	i
+MySettings	.\gui\finder_box.py	/^from ..core.my_settings import MySettings$/;"	i
+MySettings	.\gui\refresh_dialog.py	/^from ..core.my_settings import MySettings$/;"	i
+MySettings	.\qgissettingmanager\test\my_settings.py	/^class MySettings(SettingManager):$/;"	c
+MySettings	.\qgissettingmanager\test\my_settings_dialog.py	/^from .my_settings import MySettings$/;"	i
+MySettings	.\qgissettingmanager\test\test_dialog.py	/^from .my_settings import MySettings$/;"	i
+MySettings	.\qgissettingmanager\test\test_setting.py	/^from .my_settings import MySettings$/;"	i
+MySettings	.\quickfinder_plugin.py	/^from .core.my_settings import MySettings$/;"	i
+MySettingsDialog	.\qgissettingmanager\test\my_settings_dialog.py	/^class MySettingsDialog(QDialog, SettingDialog):$/;"	c
+MySettingsDialog	.\qgissettingmanager\test\test_dialog.py	/^from .my_settings_dialog import MySettingsDialog$/;"	i
+NoUpdate	.\qgissettingmanager\setting_dialog.py	/^    NoUpdate = 1$/;"	v	class:UpdateMode
+OrderedDict	.\core\ordereddict.py	/^class OrderedDict(dict, DictMixin):$/;"	c
+OrderedDict	.\core\project_finder.py	/^    from .ordereddict import OrderedDict  # for Python < 2.7$/;"	i
+OrderedDict	.\core\project_finder.py	/^    from collections import OrderedDict$/;"	i
+OsmFinder	.\core\osm_finder.py	/^class OsmFinder(HttpFinder):$/;"	c
+PostgisFinder	.\core\postgis_finder.py	/^    print("Couldn't import helper from processing.tools.postgis - disabling PostgisFinder")$/;"	i
+PostgisFinder	.\core\postgis_finder.py	/^class PostgisFinder(AbstractFinder):$/;"	c
+PostgisSearch	.\core\postgis_finder.py	/^from .postgis_search import PostgisSearch$/;"	i
+PostgisSearch	.\core\postgis_search.py	/^class PostgisSearch(QObject):$/;"	c
+PostgisSearch	.\gui\postgis_search_model.py	/^from ..core.postgis_search import PostgisSearch$/;"	i
+PostgisSearchDialog	.\gui\postgis_search_dialog.py	/^class PostgisSearchDialog(QDialog, Ui_PostgisSearch):$/;"	c
+PostgisSearchModel	.\gui\postgis_search_model.py	/^class PostgisSearchModel(QAbstractItemModel):$/;"	c
+Project	.\qgissettingmanager\scope.py	/^    Project = 1$/;"	v	class:Scope
+Project	.\qgissettingmanager\setting.py	/^    Project = 1$/;"	v	class:Scope
+ProjectFinder	.\core\project_finder.py	/^class ProjectFinder(AbstractFinder):$/;"	c
+ProjectFinder	.\gui\configuration_dialog.py	/^from ..core.project_finder import ProjectFinder, create_FTS_file$/;"	i
+ProjectFinder	.\quickfinder_plugin.py	/^from .core.project_finder import ProjectFinder, n_days_ago_iso_date$/;"	i
+ProjectSearch	.\core\project_finder.py	/^from .project_search import ProjectSearch$/;"	i
+ProjectSearch	.\core\project_search.py	/^class ProjectSearch(QObject):$/;"	c
+ProjectSearch	.\gui\project_search_model.py	/^from ..core.project_search import ProjectSearch$/;"	i
+ProjectSearchDialog	.\gui\configuration_dialog.py	/^from .project_search_dialog import ProjectSearchDialog$/;"	i
+ProjectSearchDialog	.\gui\project_search_dialog.py	/^class ProjectSearchDialog(QDialog, Ui_ProjectSearch):$/;"	c
+ProjectSearchModel	.\gui\configuration_dialog.py	/^from .project_search_model import ProjectSearchModel, SearchIdRole$/;"	i
+ProjectSearchModel	.\gui\project_search_model.py	/^class ProjectSearchModel(QAbstractItemModel):$/;"	c
+Python	.\core\project_finder.py	/^    from .ordereddict import OrderedDict  # for Python < 2.7$/;"	i
+QAbstractItemModel	.\gui\postgis_search_model.py	/^from qgis.PyQt.QtCore import Qt, QAbstractItemModel, QModelIndex$/;"	i
+QAbstractItemModel	.\gui\project_search_model.py	/^from qgis.PyQt.QtCore import Qt, QAbstractItemModel, QModelIndex$/;"	i
+QAction	.\quickfinder_plugin.py	/^from qgis.PyQt.QtWidgets import QAction, QMessageBox$/;"	i
+QApplication	.\gui\finder_box.py	/^from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout $/;"	i
+QButtonGroup	.\qgissettingmanager\setting_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QWidget, QButtonGroup$/;"	i
+QButtonGroup	.\qgissettingmanager\types\string.py	/^from qgis.PyQt.QtWidgets import QLineEdit, QButtonGroup, QComboBox$/;"	i
+QButtonGroup	.\qgissettingmanager\types\stringlist.py	/^from qgis.PyQt.QtWidgets import QListWidget, QButtonGroup$/;"	i
+QByteArray	.\core\geomapfish_finder.py	/^from qgis.PyQt.QtCore import QByteArray$/;"	i
+QCheckBox	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtWidgets import QCheckBox, QLabel, QPushButton, QDoubleSpinBox, QLineEdit, QSpinBox, QSlider, QComboBox, QListWidget$/;"	i
+QCheckBox	.\qgissettingmanager\types\bool.py	/^from qgis.PyQt.QtWidgets import QCheckBox$/;"	i
+QColor	.\gui\finder_box.py	/^from qgis.PyQt.QtGui import QIcon, QColor, QCursor $/;"	i
+QColor	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtGui import QColor$/;"	i
+QColor	.\qgissettingmanager\types\color.py	/^from qgis.PyQt.QtGui import QColor$/;"	i
+QColor	.\quickfinder_plugin.py	/^from qgis.PyQt.QtGui import QIcon, QColor, QDesktopServices$/;"	i
+QColorDialog	.\qgissettingmanager\types\color.py	/^from qgis.PyQt.QtWidgets import QColorDialog$/;"	i
+QComboBox	.\gui\finder_box.py	/^from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout $/;"	i
+QComboBox	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtWidgets import QCheckBox, QLabel, QPushButton, QDoubleSpinBox, QLineEdit, QSpinBox, QSlider, QComboBox, QListWidget$/;"	i
+QComboBox	.\qgissettingmanager\test\my_settings_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QDoubleSpinBox, QComboBox, QListWidget$/;"	i
+QComboBox	.\qgissettingmanager\types\integer.py	/^from qgis.PyQt.QtWidgets import QLineEdit, QSpinBox, QSlider, QComboBox$/;"	i
+QComboBox	.\qgissettingmanager\types\string.py	/^from qgis.PyQt.QtWidgets import QLineEdit, QButtonGroup, QComboBox$/;"	i
+QCoreApplication	.\core\project_finder.py	/^from qgis.PyQt.QtCore import pyqtSignal, QCoreApplication, QFile, QDir$/;"	i
+QCoreApplication	.\gui\configuration_dialog.py	/^from qgis.PyQt.QtCore import QCoreApplication, QSettings$/;"	i
+QCoreApplication	.\gui\finder_box.py	/^from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop, QUrl$/;"	i
+QCoreApplication	.\gui\refresh_dialog.py	/^from qgis.PyQt.QtCore import QCoreApplication$/;"	i
+QCoreApplication	.\quickfinder_plugin.py	/^from qgis.PyQt.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot$/;"	i
+QCursor	.\gui\finder_box.py	/^from qgis.PyQt.QtGui import QIcon, QColor, QCursor $/;"	i
+QDesktopServices	.\quickfinder_plugin.py	/^from qgis.PyQt.QtGui import QIcon, QColor, QDesktopServices$/;"	i
+QDialog	.\gui\configuration_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QFileDialog, QMessageBox, QHeaderView$/;"	i
+QDialog	.\gui\postgis_search_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog$/;"	i
+QDialog	.\gui\project_search_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QErrorMessage$/;"	i
+QDialog	.\gui\refresh_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog$/;"	i
+QDialog	.\qgissettingmanager\setting_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QWidget, QButtonGroup$/;"	i
+QDialog	.\qgissettingmanager\test\my_settings_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QDoubleSpinBox, QComboBox, QListWidget$/;"	i
+QDir	.\core\project_finder.py	/^from qgis.PyQt.QtCore import pyqtSignal, QCoreApplication, QFile, QDir$/;"	i
+QDoubleSpinBox	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtWidgets import QCheckBox, QLabel, QPushButton, QDoubleSpinBox, QLineEdit, QSpinBox, QSlider, QComboBox, QListWidget$/;"	i
+QDoubleSpinBox	.\qgissettingmanager\test\my_settings_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QDoubleSpinBox, QComboBox, QListWidget$/;"	i
+QDoubleSpinBox	.\qgissettingmanager\types\double.py	/^from qgis.PyQt.QtWidgets import QLineEdit, QDoubleSpinBox$/;"	i
+QErrorMessage	.\gui\project_search_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QErrorMessage$/;"	i
+QEventLoop	.\gui\finder_box.py	/^from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop, QUrl$/;"	i
+QFile	.\core\project_finder.py	/^from qgis.PyQt.QtCore import pyqtSignal, QCoreApplication, QFile, QDir$/;"	i
+QFileDialog	.\gui\configuration_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QFileDialog, QMessageBox, QHeaderView$/;"	i
+QFont	.\gui\result_model.py	/^from qgis.PyQt.QtGui import QStandardItemModel, QStandardItem, QFont, QIcon$/;"	i
+QHBoxLayout	.\gui\finder_box.py	/^from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout $/;"	i
+QHeaderView	.\gui\configuration_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QFileDialog, QMessageBox, QHeaderView$/;"	i
+QIcon	.\gui\finder_box.py	/^from qgis.PyQt.QtGui import QIcon, QColor, QCursor $/;"	i
+QIcon	.\gui\result_model.py	/^from qgis.PyQt.QtGui import QStandardItemModel, QStandardItem, QFont, QIcon$/;"	i
+QIcon	.\quickfinder_plugin.py	/^from qgis.PyQt.QtGui import QIcon, QColor, QDesktopServices$/;"	i
+QLabel	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtWidgets import QCheckBox, QLabel, QPushButton, QDoubleSpinBox, QLineEdit, QSpinBox, QSlider, QComboBox, QListWidget$/;"	i
+QLineEdit	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtWidgets import QCheckBox, QLabel, QPushButton, QDoubleSpinBox, QLineEdit, QSpinBox, QSlider, QComboBox, QListWidget$/;"	i
+QLineEdit	.\qgissettingmanager\types\double.py	/^from qgis.PyQt.QtWidgets import QLineEdit, QDoubleSpinBox$/;"	i
+QLineEdit	.\qgissettingmanager\types\integer.py	/^from qgis.PyQt.QtWidgets import QLineEdit, QSpinBox, QSlider, QComboBox$/;"	i
+QLineEdit	.\qgissettingmanager\types\string.py	/^from qgis.PyQt.QtWidgets import QLineEdit, QButtonGroup, QComboBox$/;"	i
+QListWidget	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtWidgets import QCheckBox, QLabel, QPushButton, QDoubleSpinBox, QLineEdit, QSpinBox, QSlider, QComboBox, QListWidget$/;"	i
+QListWidget	.\qgissettingmanager\test\my_settings_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QDoubleSpinBox, QComboBox, QListWidget$/;"	i
+QListWidget	.\qgissettingmanager\types\stringlist.py	/^from qgis.PyQt.QtWidgets import QListWidget, QButtonGroup$/;"	i
+QMessageBox	.\gui\configuration_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QFileDialog, QMessageBox, QHeaderView$/;"	i
+QMessageBox	.\quickfinder_plugin.py	/^from qgis.PyQt.QtWidgets import QAction, QMessageBox$/;"	i
+QModelIndex	.\gui\postgis_search_model.py	/^from qgis.PyQt.QtCore import Qt, QAbstractItemModel, QModelIndex$/;"	i
+QModelIndex	.\gui\project_search_model.py	/^from qgis.PyQt.QtCore import Qt, QAbstractItemModel, QModelIndex$/;"	i
+QNetworkReply	.\core\http_finder.py	/^from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply$/;"	i
+QNetworkReply	.\gui\finder_box.py	/^from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply$/;"	i
+QNetworkRequest	.\core\http_finder.py	/^from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply$/;"	i
+QNetworkRequest	.\gui\finder_box.py	/^from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply$/;"	i
+QObject	.\core\abstract_finder.py	/^from qgis.PyQt.QtCore import QObject, pyqtSignal$/;"	i
+QObject	.\core\postgis_finder.py	/^from qgis.PyQt.QtCore import QObject, QSettings$/;"	i
+QObject	.\core\postgis_search.py	/^from qgis.PyQt.QtCore import pyqtSignal, QObject$/;"	i
+QObject	.\core\project_search.py	/^from qgis.PyQt.QtCore import pyqtSignal, QObject$/;"	i
+QObject	.\qgissettingmanager\setting.py	/^from qgis.PyQt.QtCore import QObject, pyqtSignal, QSettings$/;"	i
+QObject	.\qgissettingmanager\setting_widget.py	/^from qgis.PyQt.QtCore import pyqtSlot, QObject$/;"	i
+QObject	.\quickfinder_plugin.py	/^from qgis.PyQt.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot$/;"	i
+QPushButton	.\gui\finder_box.py	/^from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout $/;"	i
+QPushButton	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtWidgets import QCheckBox, QLabel, QPushButton, QDoubleSpinBox, QLineEdit, QSpinBox, QSlider, QComboBox, QListWidget$/;"	i
+QSettings	.\core\postgis_finder.py	/^from qgis.PyQt.QtCore import QObject, QSettings$/;"	i
+QSettings	.\gui\configuration_dialog.py	/^from qgis.PyQt.QtCore import QCoreApplication, QSettings$/;"	i
+QSettings	.\qgissettingmanager\setting.py	/^from qgis.PyQt.QtCore import QObject, pyqtSignal, QSettings$/;"	i
+QSettings	.\quickfinder_plugin.py	/^from qgis.PyQt.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot$/;"	i
+QSizePolicy	.\gui\finder_box.py	/^from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout $/;"	i
+QSlider	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtWidgets import QCheckBox, QLabel, QPushButton, QDoubleSpinBox, QLineEdit, QSpinBox, QSlider, QComboBox, QListWidget$/;"	i
+QSlider	.\qgissettingmanager\types\integer.py	/^from qgis.PyQt.QtWidgets import QLineEdit, QSpinBox, QSlider, QComboBox$/;"	i
+QSortFilterProxyModel	.\gui\configuration_dialog.py	/^from qgis.PyQt.QtCore import QSortFilterProxyModel$/;"	i
+QSpinBox	.\qgissettingmanager\test\my_settings.py	/^from qgis.PyQt.QtWidgets import QCheckBox, QLabel, QPushButton, QDoubleSpinBox, QLineEdit, QSpinBox, QSlider, QComboBox, QListWidget$/;"	i
+QSpinBox	.\qgissettingmanager\types\integer.py	/^from qgis.PyQt.QtWidgets import QLineEdit, QSpinBox, QSlider, QComboBox$/;"	i
+QStandardItem	.\gui\result_model.py	/^from qgis.PyQt.QtGui import QStandardItemModel, QStandardItem, QFont, QIcon$/;"	i
+QStandardItemModel	.\gui\result_model.py	/^from qgis.PyQt.QtGui import QStandardItemModel, QStandardItem, QFont, QIcon$/;"	i
+QTranslator	.\quickfinder_plugin.py	/^from qgis.PyQt.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot$/;"	i
+QTreeView	.\gui\finder_box.py	/^from qgis.PyQt.QtWidgets import QComboBox, QSizePolicy, QTreeView, QApplication, QPushButton, QHBoxLayout $/;"	i
+QUrl	.\core\http_finder.py	/^from qgis.PyQt.QtCore import QUrl$/;"	i
+QUrl	.\gui\finder_box.py	/^from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop, QUrl$/;"	i
+QUrl	.\quickfinder_plugin.py	/^from qgis.PyQt.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot$/;"	i
+QWidget	.\qgissettingmanager\setting_dialog.py	/^from qgis.PyQt.QtWidgets import QDialog, QWidget, QButtonGroup$/;"	i
+Qgis	.\core\abstract_finder.py	/^from qgis.core import QgsGeometry, Qgis$/;"	i
+Qgis	.\gui\finder_box.py	/^from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes$/;"	i
+Qgis	.\quickfinder_plugin.py	/^from qgis.core import Qgis$/;"	i
+QgisColorWidget	.\qgissettingmanager\types\color.py	/^class QgisColorWidget(SettingWidget):$/;"	c
+QgsCollapsibleGroupBox	.\qgissettingmanager\test\my_settings.py	/^from qgis.gui import QgsCollapsibleGroupBox, QgsColorButton, QgsColorButtonV2$/;"	i
+QgsCollapsibleGroupBox	.\qgissettingmanager\test\my_settings_dialog.py	/^from qgis.gui import QgsCollapsibleGroupBox$/;"	i
+QgsColorButton	.\qgissettingmanager\test\my_settings.py	/^from qgis.gui import QgsCollapsibleGroupBox, QgsColorButton, QgsColorButtonV2$/;"	i
+QgsColorButton	.\qgissettingmanager\types\color.py	/^from qgis.gui import QgsColorButton, QgsColorButton$/;"	i
+QgsColorButtonV2	.\qgissettingmanager\test\my_settings.py	/^from qgis.gui import QgsCollapsibleGroupBox, QgsColorButton, QgsColorButtonV2$/;"	i
+QgsCoordinateReferenceSystem	.\core\project_finder.py	/^from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject, QgsExpressionContext, QgsExpressionContextScope$/;"	i
+QgsCoordinateReferenceSystem	.\gui\finder_box.py	/^from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes$/;"	i
+QgsCoordinateTransform	.\gui\finder_box.py	/^from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes$/;"	i
+QgsCredentials	.\core\postgis_finder.py	/^from qgis.core import QgsGeometry, QgsCredentials$/;"	i
+QgsExpression	.\core\project_finder.py	/^from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject, QgsExpressionContext, QgsExpressionContextScope$/;"	i
+QgsExpressionContext	.\core\project_finder.py	/^from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject, QgsExpressionContext, QgsExpressionContextScope$/;"	i
+QgsExpressionContextScope	.\core\project_finder.py	/^from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject, QgsExpressionContext, QgsExpressionContextScope$/;"	i
+QgsFeatureRequest	.\core\project_finder.py	/^from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject, QgsExpressionContext, QgsExpressionContextScope$/;"	i
+QgsFieldComboBox	.\qgissettingmanager\types\string.py	/^from qgis.gui import QgsMapLayerComboBox, QgsFieldComboBox$/;"	i
+QgsFieldExpressionWidget	.\ui\ui_projectsearch.py	/^from qgis.gui import QgsFieldExpressionWidget, QgsMapLayerComboBox$/;"	i
+QgsGeometry	.\core\abstract_finder.py	/^from qgis.core import QgsGeometry, Qgis$/;"	i
+QgsGeometry	.\core\geomapfish_finder.py	/^from qgis.core import QgsGeometry$/;"	i
+QgsGeometry	.\core\osm_finder.py	/^from qgis.core import QgsGeometry$/;"	i
+QgsGeometry	.\core\postgis_finder.py	/^from qgis.core import QgsGeometry, QgsCredentials$/;"	i
+QgsGeometry	.\core\project_finder.py	/^from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject, QgsExpressionContext, QgsExpressionContextScope$/;"	i
+QgsGeometry	.\gui\finder_box.py	/^from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes$/;"	i
+QgsLogger	.\core\http_finder.py	/^from qgis.core import QgsLogger$/;"	i
+QgsMapLayerComboBox	.\qgissettingmanager\types\string.py	/^from qgis.gui import QgsMapLayerComboBox, QgsFieldComboBox$/;"	i
+QgsMapLayerComboBox	.\ui\ui_projectsearch.py	/^from qgis.gui import QgsFieldExpressionWidget, QgsMapLayerComboBox$/;"	i
+QgsMapLayerProxyModel	.\gui\project_search_dialog.py	/^from qgis.core import QgsMapLayerProxyModel$/;"	i
+QgsMessageBar	.\core\abstract_finder.py	/^from qgis.gui import QgsMessageBar$/;"	i
+QgsMessageBar	.\core\http_finder.py	/^from qgis.gui import QgsMessageBar$/;"	i
+QgsMessageBar	.\core\postgis_finder.py	/^from qgis.gui import QgsMessageBar$/;"	i
+QgsMessageBar	.\core\project_finder.py	/^from qgis.gui import QgsMessageBar$/;"	i
+QgsMessageLog	.\core\project_finder.py	/^from qgis.core import QgsMessageLog$/;"	i
+QgsMessageLog	.\gui\finder_box.py	/^from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes$/;"	i
+QgsMessageLog	.\gui\refresh_dialog.py	/^from qgis.core import QgsMessageLog$/;"	i
+QgsNetworkAccessManager	.\core\http_finder.py	/^from qgis.core import QgsNetworkAccessManager$/;"	i
+QgsPointXY	.\gui\finder_box.py	/^from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes$/;"	i
+QgsProject	.\core\postgis_search.py	/^from qgis.core import QgsProject$/;"	i
+QgsProject	.\core\project_finder.py	/^from qgis.core import QgsProject, QgsFeatureRequest, QgsExpression, QgsGeometry, QgsCoordinateReferenceSystem, QgsProject, QgsExpressionContext, QgsExpressionContextScope$/;"	i
+QgsProject	.\core\project_search.py	/^from qgis.core import QgsProject$/;"	i
+QgsProject	.\gui\configuration_dialog.py	/^from qgis.core import QgsProject$/;"	i
+QgsProject	.\gui\finder_box.py	/^from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes$/;"	i
+QgsProject	.\qgissettingmanager\setting.py	/^from qgis.core import QgsProject$/;"	i
+QgsProject	.\qgissettingmanager\types\bool.py	/^from qgis.core import QgsProject$/;"	i
+QgsProject	.\qgissettingmanager\types\color.py	/^from qgis.core import QgsProject$/;"	i
+QgsProject	.\qgissettingmanager\types\double.py	/^from qgis.core import QgsProject$/;"	i
+QgsProject	.\qgissettingmanager\types\integer.py	/^from qgis.core import QgsProject$/;"	i
+QgsProject	.\qgissettingmanager\types\string.py	/^from qgis.core import QgsProject, QgsProject$/;"	i
+QgsProject	.\qgissettingmanager\types\stringlist.py	/^from qgis.core import QgsProject$/;"	i
+QgsProjectionSelectionTreeWidget	.\gui\configuration_dialog.py	/^from qgis.gui import QgsProjectionSelectionTreeWidget$/;"	i
+QgsProjectionSelectionTreeWidget	.\gui\postgis_search_dialog.py	/^from qgis.gui import QgsProjectionSelectionTreeWidget$/;"	i
+QgsRectangle	.\gui\finder_box.py	/^from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes$/;"	i
+QgsRubberBand	.\gui\finder_box.py	/^from qgis.gui import QgsRubberBand, QgsVertexMarker$/;"	i
+QgsRubberBand	.\quickfinder_plugin.py	/^from qgis.gui import QgsRubberBand$/;"	i
+QgsVertexMarker	.\gui\finder_box.py	/^from qgis.gui import QgsRubberBand, QgsVertexMarker$/;"	i
+QgsWkbTypes	.\gui\finder_box.py	/^from qgis.core import QgsGeometry, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, QgsMessageLog, QgsRectangle, QgsPointXY, Qgis, QgsWkbTypes$/;"	i
+Qt	.\gui\finder_box.py	/^from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop, QUrl$/;"	i
+Qt	.\gui\postgis_search_model.py	/^from qgis.PyQt.QtCore import Qt, QAbstractItemModel, QModelIndex$/;"	i
+Qt	.\gui\project_search_dialog.py	/^from qgis.PyQt.QtCore import Qt$/;"	i
+Qt	.\gui\project_search_model.py	/^from qgis.PyQt.QtCore import Qt, QAbstractItemModel, QModelIndex$/;"	i
+Qt	.\gui\result_model.py	/^from qgis.PyQt.QtCore import Qt$/;"	i
+Qt	.\qgissettingmanager\types\stringlist.py	/^from qgis.PyQt.QtCore import Qt$/;"	i
+Qt	.\quickfinder_plugin.py	/^from qgis.PyQt.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot$/;"	i
+QtCore	.\resources_rc.py	/^from PyQt5 import QtCore$/;"	i
+QtCore	.\ui\ui_configuration.py	/^from PyQt5 import QtCore, QtGui, QtWidgets$/;"	i
+QtCore	.\ui\ui_postgissearch.py	/^from qgis.PyQt import QtCore, QtGui, QtWidgets$/;"	i
+QtCore	.\ui\ui_projectsearch.py	/^from qgis.PyQt import QtCore, QtGui, QtWidgets$/;"	i
+QtCore	.\ui\ui_refresh.py	/^from qgis.PyQt import QtCore, QtGui, QtWidgets$/;"	i
+QtGui	.\ui\ui_configuration.py	/^from PyQt5 import QtCore, QtGui, QtWidgets$/;"	i
+QtGui	.\ui\ui_postgissearch.py	/^from qgis.PyQt import QtCore, QtGui, QtWidgets$/;"	i
+QtGui	.\ui\ui_projectsearch.py	/^from qgis.PyQt import QtCore, QtGui, QtWidgets$/;"	i
+QtGui	.\ui\ui_refresh.py	/^from qgis.PyQt import QtCore, QtGui, QtWidgets$/;"	i
+QtWidgets	.\ui\ui_configuration.py	/^from PyQt5 import QtCore, QtGui, QtWidgets$/;"	i
+QtWidgets	.\ui\ui_postgissearch.py	/^from qgis.PyQt import QtCore, QtGui, QtWidgets$/;"	i
+QtWidgets	.\ui\ui_projectsearch.py	/^from qgis.PyQt import QtCore, QtGui, QtWidgets$/;"	i
+QtWidgets	.\ui\ui_refresh.py	/^from qgis.PyQt import QtCore, QtGui, QtWidgets$/;"	i
+QuickFinder	.\__init__.py	/^    from .quickfinder_plugin import QuickFinder$/;"	i
+QuickFinder	.\quickfinder_plugin.py	/^class QuickFinder(QObject):$/;"	c
+RefreshDialog	.\gui\configuration_dialog.py	/^from .refresh_dialog import RefreshDialog$/;"	i
+RefreshDialog	.\gui\refresh_dialog.py	/^class RefreshDialog(QDialog, Ui_Refresh):$/;"	c
+RefreshDialog	.\quickfinder_plugin.py	/^from .gui.refresh_dialog import RefreshDialog$/;"	i
+ResultItem	.\gui\finder_box.py	/^from .result_model import ResultModel, GroupItem, ResultItem$/;"	i
+ResultItem	.\gui\result_model.py	/^class ResultItem(BaseItem):$/;"	c
+ResultModel	.\gui\finder_box.py	/^from .result_model import ResultModel, GroupItem, ResultItem$/;"	i
+ResultModel	.\gui\result_model.py	/^class ResultModel(QStandardItemModel):$/;"	c
+Scope	.\core\my_settings.py	/^from ..qgissettingmanager import SettingManager, Scope, Bool, String, Integer, Stringlist$/;"	i
+Scope	.\qgissettingmanager\__init__.py	/^from .setting import Setting, Scope$/;"	i
+Scope	.\qgissettingmanager\scope.py	/^class Scope(object):$/;"	c
+Scope	.\qgissettingmanager\setting.py	/^class Scope(object):$/;"	c
+Scope	.\qgissettingmanager\setting_manager.py	/^from .setting import Scope$/;"	i
+SearchIdRole	.\gui\configuration_dialog.py	/^from .project_search_model import ProjectSearchModel, SearchIdRole$/;"	i
+SearchIdRole	.\gui\postgis_search_model.py	/^SearchIdRole = Qt.UserRole + 2$/;"	v
+SearchIdRole	.\gui\project_search_model.py	/^SearchIdRole = Qt.UserRole + 2$/;"	v
+Setting	.\qgissettingmanager\__init__.py	/^from .setting import Setting, Scope$/;"	i
+Setting	.\qgissettingmanager\setting.py	/^class Setting(QObject):$/;"	c
+Setting	.\qgissettingmanager\types\bool.py	/^from ..setting import Setting$/;"	i
+Setting	.\qgissettingmanager\types\color.py	/^from ..setting import Setting$/;"	i
+Setting	.\qgissettingmanager\types\double.py	/^from ..setting import Setting$/;"	i
+Setting	.\qgissettingmanager\types\integer.py	/^from ..setting import Setting$/;"	i
+Setting	.\qgissettingmanager\types\string.py	/^from ..setting import Setting$/;"	i
+Setting	.\qgissettingmanager\types\stringlist.py	/^from ..setting import Setting$/;"	i
+SettingDialog	.\gui\configuration_dialog.py	/^from ..qgissettingmanager import SettingDialog$/;"	i
+SettingDialog	.\qgissettingmanager\__init__.py	/^from .setting_dialog import SettingDialog, UpdateMode$/;"	i
+SettingDialog	.\qgissettingmanager\setting_dialog.py	/^class SettingDialog(object):$/;"	c
+SettingDialog	.\qgissettingmanager\test\my_settings_dialog.py	/^from ..setting_dialog import SettingDialog, UpdateMode$/;"	i
+SettingManager	.\core\my_settings.py	/^from ..qgissettingmanager import SettingManager, Scope, Bool, String, Integer, Stringlist$/;"	i
+SettingManager	.\qgissettingmanager\__init__.py	/^from .setting_manager import SettingManager$/;"	i
+SettingManager	.\qgissettingmanager\setting_manager.py	/^class SettingManager(object):$/;"	c
+SettingWidget	.\qgissettingmanager\setting_widget.py	/^class SettingWidget(QObject):$/;"	c
+SettingWidget	.\qgissettingmanager\types\bool.py	/^from ..setting_widget import SettingWidget$/;"	i
+SettingWidget	.\qgissettingmanager\types\color.py	/^from ..setting_widget import SettingWidget$/;"	i
+SettingWidget	.\qgissettingmanager\types\double.py	/^from ..setting_widget import SettingWidget$/;"	i
+SettingWidget	.\qgissettingmanager\types\integer.py	/^from ..setting_widget import SettingWidget$/;"	i
+SettingWidget	.\qgissettingmanager\types\string.py	/^from ..setting_widget import SettingWidget$/;"	i
+SettingWidget	.\qgissettingmanager\types\stringlist.py	/^from ..setting_widget import SettingWidget$/;"	i
+SpinBoxIntegerWidget	.\qgissettingmanager\types\integer.py	/^class SpinBoxIntegerWidget(SettingWidget):$/;"	c
+StandardColorWidget	.\qgissettingmanager\types\color.py	/^class StandardColorWidget(SettingWidget):$/;"	c
+String	.\core\my_settings.py	/^from ..qgissettingmanager import SettingManager, Scope, Bool, String, Integer, Stringlist$/;"	i
+String	.\qgissettingmanager\types\__init__.py	/^from .string import String/;"	i
+String	.\qgissettingmanager\types\string.py	/^class String(Setting):$/;"	c
+Stringlist	.\core\my_settings.py	/^from ..qgissettingmanager import SettingManager, Scope, Bool, String, Integer, Stringlist$/;"	i
+Stringlist	.\qgissettingmanager\types\__init__.py	/^from .stringlist import Stringlist$/;"	i
+Stringlist	.\qgissettingmanager\types\stringlist.py	/^class Stringlist(Setting):$/;"	c
+TestDialog	.\qgissettingmanager\test\test_dialog.py	/^class TestDialog(unittest.TestCase):$/;"	c
+TestSetting	.\qgissettingmanager\test\test_setting.py	/^class TestSetting(unittest.TestCase):$/;"	c
+Ui_Configuration	.\gui\configuration_dialog.py	/^from ..ui.ui_configuration import Ui_Configuration$/;"	i
+Ui_Configuration	.\ui\ui_configuration.py	/^class Ui_Configuration(object):$/;"	c
+Ui_PostgisSearch	.\gui\postgis_search_dialog.py	/^from ..ui.ui_postgissearch import Ui_PostgisSearch$/;"	i
+Ui_PostgisSearch	.\ui\ui_postgissearch.py	/^class Ui_PostgisSearch(object):$/;"	c
+Ui_ProjectSearch	.\gui\project_search_dialog.py	/^from ..ui.ui_projectsearch import Ui_ProjectSearch$/;"	i
+Ui_ProjectSearch	.\ui\ui_projectsearch.py	/^class Ui_ProjectSearch(object):$/;"	c
+Ui_Refresh	.\gui\refresh_dialog.py	/^from ..ui.ui_refresh import Ui_Refresh$/;"	i
+Ui_Refresh	.\ui\ui_refresh.py	/^class Ui_Refresh(object):$/;"	c
+UpdateMode	.\qgissettingmanager\__init__.py	/^from .setting_dialog import SettingDialog, UpdateMode$/;"	i
+UpdateMode	.\qgissettingmanager\setting_dialog.py	/^class UpdateMode(object):$/;"	c
+UpdateMode	.\qgissettingmanager\test\my_settings_dialog.py	/^from ..setting_dialog import SettingDialog, UpdateMode$/;"	i
+UpdateMode	.\qgissettingmanager\test\test_dialog.py	/^from ..setting_dialog import UpdateMode$/;"	i
+WidgetUpdate	.\qgissettingmanager\setting_dialog.py	/^    WidgetUpdate = 3$/;"	v	class:UpdateMode
+__del__	.\gui\finder_box.py	/^    def __del__(self):$/;"	m	class:FinderBox	file:
+__delitem__	.\core\ordereddict.py	/^    def __delitem__(self, key):$/;"	m	class:OrderedDict	file:
+__eq__	.\core\ordereddict.py	/^    def __eq__(self, other):$/;"	m	class:OrderedDict	file:
+__init__	.\core\abstract_finder.py	/^    def __init__(self, parent):$/;"	m	class:AbstractFinder
+__init__	.\core\geomapfish_finder.py	/^    def __init__(self, parent):$/;"	m	class:GeomapfishFinder
+__init__	.\core\http_finder.py	/^    def __init__(self):$/;"	m	class:HttpFinder
+__init__	.\core\my_settings.py	/^    def __init__(self):$/;"	m	class:MySettings
+__init__	.\core\ordereddict.py	/^    def __init__(self, *args, **kwds):$/;"	m	class:OrderedDict
+__init__	.\core\osm_finder.py	/^    def __init__(self, parent):$/;"	m	class:OsmFinder
+__init__	.\core\postgis_finder.py	/^    def __init__(self, parent):$/;"	m	class:PostgisFinder
+__init__	.\core\postgis_search.py	/^    def __init__(self, searchId, searchName, expression, priority, srid,$/;"	m	class:PostgisSearch
+__init__	.\core\project_finder.py	/^    def __init__(self, parent):$/;"	m	class:ProjectFinder
+__init__	.\core\project_search.py	/^    def __init__(self, searchId, searchName, layerid, layerName, expression, geometryStorage, priority, srid, dateEvaluated=None):$/;"	m	class:ProjectSearch
+__init__	.\gui\configuration_dialog.py	/^    def __init__(self):$/;"	m	class:ConfigurationDialog
+__init__	.\gui\cood_trans.py	/^    def __init__(self, api_key):$/;"	m	class:Geocoding
+__init__	.\gui\finder_box.py	/^    def __init__(self, finders, iface, parent=None):$/;"	m	class:FinderBox
+__init__	.\gui\postgis_search_dialog.py	/^    def __init__(self, postgis_finder, postgis_search_model, postgisSearch=None):$/;"	m	class:PostgisSearchDialog
+__init__	.\gui\postgis_search_model.py	/^    def __init__(self, postgis_finder):$/;"	m	class:PostgisSearchModel
+__init__	.\gui\project_search_dialog.py	/^    def __init__(self, project_finder, project_search_model, projectSearch=None):$/;"	m	class:ProjectSearchDialog
+__init__	.\gui\project_search_model.py	/^    def __init__(self, project_finder):$/;"	m	class:ProjectSearchModel
+__init__	.\gui\refresh_dialog.py	/^    def __init__(self, project_finder, project_search_model=None, selectedRows=None):$/;"	m	class:RefreshDialog
+__init__	.\gui\result_model.py	/^    def __init__(self, name):$/;"	m	class:BaseItem
+__init__	.\gui\result_model.py	/^    def __init__(self, name):$/;"	m	class:CategoryItem
+__init__	.\gui\result_model.py	/^    def __init__(self, name):$/;"	m	class:GroupItem
+__init__	.\gui\result_model.py	/^    def __init__(self, name):$/;"	m	class:ResultItem
+__init__	.\gui\result_model.py	/^    def __init__(self, parent):$/;"	m	class:ResultModel
+__init__	.\gui\result_model.py	/^   def __init__(self, name):$/;"	m	class:LayerItem
+__init__	.\qgissettingmanager\setting.py	/^    def __init__(self, name, scope, default_value, object_type, project_read, project_write, options={}):$/;"	m	class:Setting
+__init__	.\qgissettingmanager\setting_dialog.py	/^    def __init__(self, setting_manager, mode=UpdateMode.DialogAccept, set_value_on_widget_update=False ):$/;"	m	class:SettingDialog
+__init__	.\qgissettingmanager\setting_manager.py	/^    def __init__(self, plugin_name):$/;"	m	class:SettingManager
+__init__	.\qgissettingmanager\setting_widget.py	/^    def __init__(self, setting, widget, options, signal):$/;"	m	class:SettingWidget
+__init__	.\qgissettingmanager\test\my_settings.py	/^    def __init__(self):$/;"	m	class:MySettings
+__init__	.\qgissettingmanager\test\my_settings_dialog.py	/^    def __init__(self, setting_name, widget_class, mode=UpdateMode.DialogAccept):$/;"	m	class:MySettingsDialog
+__init__	.\qgissettingmanager\types\bool.py	/^    def __init__(self, name, scope, default_value, options={}):$/;"	m	class:Bool
+__init__	.\qgissettingmanager\types\bool.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:CheckBoxBoolWidget
+__init__	.\qgissettingmanager\types\bool.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:CheckableBoolWidget
+__init__	.\qgissettingmanager\types\color.py	/^    def __init__(self, name, scope, default_value, options={}):$/;"	m	class:Color
+__init__	.\qgissettingmanager\types\color.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:QgisColorWidget
+__init__	.\qgissettingmanager\types\color.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:StandardColorWidget
+__init__	.\qgissettingmanager\types\double.py	/^    def __init__(self, name, scope, default_value, options={}):$/;"	m	class:Double
+__init__	.\qgissettingmanager\types\double.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:DoubleSpinBoxDoubleWidget
+__init__	.\qgissettingmanager\types\double.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:LineEditDoubleWidget
+__init__	.\qgissettingmanager\types\integer.py	/^    def __init__(self, name, scope, default_value, options={}):$/;"	m	class:Integer
+__init__	.\qgissettingmanager\types\integer.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:ComboBoxIntegerWidget
+__init__	.\qgissettingmanager\types\integer.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:LineEditIntegerWidget
+__init__	.\qgissettingmanager\types\integer.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:SpinBoxIntegerWidget
+__init__	.\qgissettingmanager\types\string.py	/^    def __init__(self, name, scope, default_value, options={}):$/;"	m	class:String
+__init__	.\qgissettingmanager\types\string.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:ButtonGroupStringWidget
+__init__	.\qgissettingmanager\types\string.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:ComboStringWidget
+__init__	.\qgissettingmanager\types\string.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:FieldComboStringWidget
+__init__	.\qgissettingmanager\types\string.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:LineEditStringWidget
+__init__	.\qgissettingmanager\types\string.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:MapLayerComboStringWidget
+__init__	.\qgissettingmanager\types\stringlist.py	/^    def __init__(self, name, scope, default_value, options={}):$/;"	m	class:Stringlist
+__init__	.\qgissettingmanager\types\stringlist.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:ButtonGroupStringListWidget
+__init__	.\qgissettingmanager\types\stringlist.py	/^    def __init__(self, setting, widget, options):$/;"	m	class:ListStringListWidget
+__init__	.\quickfinder_plugin.py	/^    def __init__(self, iface):$/;"	m	class:QuickFinder
+__iter__	.\core\ordereddict.py	/^    def __iter__(self):$/;"	m	class:OrderedDict	file:
+__ne__	.\core\ordereddict.py	/^    def __ne__(self, other):$/;"	m	class:OrderedDict	file:
+__reduce__	.\core\ordereddict.py	/^    def __reduce__(self):$/;"	m	class:OrderedDict	file:
+__repr__	.\core\ordereddict.py	/^    def __repr__(self):$/;"	m	class:OrderedDict	file:
+__reversed__	.\core\ordereddict.py	/^    def __reversed__(self):$/;"	m	class:OrderedDict	file:
+__setitem__	.\core\ordereddict.py	/^    def __setitem__(self, key, value):$/;"	m	class:OrderedDict	file:
+_childItem	.\gui\result_model.py	/^    def _childItem(self, parent, name, createclass=None):$/;"	m	class:ResultModel
+_encoding	.\ui\ui_postgissearch.py	/^    _encoding = QtWidgets.QApplication.UnicodeUTF8$/;"	v
+_encoding	.\ui\ui_projectsearch.py	/^    _encoding = QtWidgets.QApplication.UnicodeUTF8$/;"	v
+_encoding	.\ui\ui_refresh.py	/^    _encoding = QtWidgets.QApplication.UnicodeUTF8$/;"	v
+_finish	.\core\abstract_finder.py	/^    def _finish(self):$/;"	m	class:AbstractFinder
+_fromUtf8	.\ui\ui_postgissearch.py	/^    _fromUtf8 = QtCore.QString.fromUtf8$/;"	v
+_fromUtf8	.\ui\ui_postgissearch.py	/^    def _fromUtf8(s):$/;"	f
+_fromUtf8	.\ui\ui_projectsearch.py	/^    _fromUtf8 = QtCore.QString.fromUtf8$/;"	v
+_fromUtf8	.\ui\ui_projectsearch.py	/^    def _fromUtf8(s):$/;"	f
+_fromUtf8	.\ui\ui_refresh.py	/^    _fromUtf8 = QtCore.QString.fromUtf8$/;"	v
+_fromUtf8	.\ui\ui_refresh.py	/^    def _fromUtf8(s):$/;"	f
+_init_finders	.\quickfinder_plugin.py	/^    def _init_finders(self):$/;"	m	class:QuickFinder
+_init_toolbar	.\quickfinder_plugin.py	/^    def _init_toolbar(self):$/;"	m	class:QuickFinder
+_reload_finders	.\quickfinder_plugin.py	/^    def _reload_finders(self):$/;"	m	class:QuickFinder
+_searches	.\core\project_finder.py	/^    _searches = OrderedDict()$/;"	v	class:ProjectFinder
+_sendRequest	.\core\http_finder.py	/^    def _sendRequest(self, url, params, headers={}):$/;"	m	class:HttpFinder
+_transformlat	.\gui\cood_trans.py	/^def _transformlat(lng, lat):$/;"	f
+_transformlng	.\gui\cood_trans.py	/^def _transformlng(lng, lat):$/;"	f
+_translate	.\ui\ui_postgissearch.py	/^    def _translate(context, text, disambig):$/;"	f
+_translate	.\ui\ui_projectsearch.py	/^    def _translate(context, text, disambig):$/;"	f
+_translate	.\ui\ui_refresh.py	/^    def _translate(context, text, disambig):$/;"	f
+a	.\gui\cood_trans.py	/^a = 6378245.0  # 长半轴$/;"	v
+absolute_import	.\core\geomapfish_finder.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\core\osm_finder.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\core\postgis_finder.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\gui\configuration_dialog.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\qgissettingmanager\__init__.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\qgissettingmanager\setting_dialog.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\qgissettingmanager\setting_manager.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\qgissettingmanager\test\my_settings_dialog.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\qgissettingmanager\test\test_dialog.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\qgissettingmanager\test\test_setting.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	.\qgissettingmanager\types\__init__.py	/^from __future__ import absolute_import$/;"	i
+accept	.\gui\configuration_dialog.py	/^    def accept(self):$/;"	m	class:ConfigurationDialog
+accept_dialog	.\qgissettingmanager\setting_dialog.py	/^    def accept_dialog(self):$/;"	m	class:SettingDialog
+actions	.\quickfinder_plugin.py	/^    actions = None$/;"	v	class:QuickFinder
+activated	.\core\abstract_finder.py	/^    def activated(self):$/;"	m	class:AbstractFinder
+active	.\core\postgis_finder.py	/^    def active(self):$/;"	m	class:PostgisFinder
+addResult	.\gui\result_model.py	/^    def addResult(self, category, layer='', value='', geometry=None, srid=None):$/;"	m	class:ResultModel
+addSearch	.\gui\postgis_search_model.py	/^    def addSearch(self, searchName, expression, priority, srid, project):$/;"	m	class:PostgisSearchModel
+addSearch	.\gui\project_search_model.py	/^    def addSearch(self, searchName, layer, expression, geometryStorage, priority):$/;"	m	class:ProjectSearchModel
+addSetting	.\qgissettingmanager\setting_manager.py	/^    def addSetting(self, name, setting_type, tscope, default_value, options={}):$/;"	m	class:SettingManager
+add_project_search	.\gui\configuration_dialog.py	/^    def add_project_search(self):$/;"	m	class:ConfigurationDialog
+add_setting	.\qgissettingmanager\setting_manager.py	/^    def add_setting(self, setting):$/;"	m	class:SettingManager
+apikey	.\gui\baidukey.py	/^apikey = 'NzxDPjRATSgStAUKqnd3x78t'$/;"	v
+apikey	.\gui\baidukeysample.py	/^apikey = 'NzxDPjRATSgStAUKqnd3x78t'$/;"	v
+apikey	.\gui\finder_box.py	/^        from .baidukey import apikey$/;"	i
+bd09_to_gcj02	.\gui\cood_trans.py	/^def bd09_to_gcj02(bd_lon, bd_lat):$/;"	f
+bd09_to_wgs84	.\gui\cood_trans.py	/^def bd09_to_wgs84(bd_lon, bd_lat):$/;"	f
+bd09_to_wgs84	.\gui\finder_box.py	/^        from .cood_trans import bd09_to_wgs84$/;"	i
+before_accept_dialog	.\qgissettingmanager\setting_dialog.py	/^    def before_accept_dialog(self):$/;"	m	class:SettingDialog
+binascii	.\core\postgis_finder.py	/^import binascii$/;"	i
+binascii	.\core\project_finder.py	/^import binascii$/;"	i
+cancel	.\gui\refresh_dialog.py	/^    def cancel(self):$/;"	m	class:RefreshDialog
+changed	.\core\postgis_search.py	/^    changed = pyqtSignal()$/;"	v	class:PostgisSearch
+changed	.\core\project_search.py	/^    changed = pyqtSignal()$/;"	v	class:ProjectSearch
+check	.\qgissettingmanager\setting.py	/^    def check(self, value):$/;"	m	class:Setting
+check	.\qgissettingmanager\types\bool.py	/^    def check(self, value):$/;"	m	class:Bool
+check	.\qgissettingmanager\types\color.py	/^    def check(self, color):$/;"	m	class:Color
+check	.\qgissettingmanager\types\double.py	/^    def check(self, value):$/;"	m	class:Double
+check	.\qgissettingmanager\types\integer.py	/^    def check(self, value):$/;"	m	class:Integer
+check	.\qgissettingmanager\types\string.py	/^    def check(self, value):$/;"	m	class:String
+check	.\qgissettingmanager\types\stringlist.py	/^    def check(self, value):$/;"	m	class:Stringlist
+check_dialog_accept_update	.\qgissettingmanager\test\test_dialog.py	/^    def check_dialog_accept_update(self, test_name, name, widget_class):$/;"	m	class:TestDialog
+check_dialog_auto_update	.\qgissettingmanager\test\test_dialog.py	/^    def check_dialog_auto_update(self, test_name, name, widget_class):$/;"	m	class:TestDialog
+check_setting	.\qgissettingmanager\test\test_setting.py	/^    def check_setting(self, name):$/;"	m	class:TestSetting
+classFactory	.\__init__.py	/^def classFactory(iface):$/;"	f
+clear	.\core\ordereddict.py	/^    def clear(self):$/;"	m	class:OrderedDict
+clear	.\gui\finder_box.py	/^    def clear(self):$/;"	m	class:FinderBox
+clearMarker	.\gui\finder_box.py	/^    def clearMarker(self):$/;"	m	class:FinderBox
+clearResults	.\gui\result_model.py	/^    def clearResults(self):$/;"	m	class:ResultModel
+clearSelection	.\gui\finder_box.py	/^    def clearSelection(self):$/;"	m	class:FinderBox
+close	.\core\abstract_finder.py	/^    def close(self):$/;"	m	class:AbstractFinder
+close	.\core\project_finder.py	/^    def close(self):$/;"	m	class:ProjectFinder
+closeEvent	.\gui\refresh_dialog.py	/^    def closeEvent(self, e):$/;"	m	class:RefreshDialog
+close_and_control	.\gui\configuration_dialog.py	/^    def close_and_control(self):$/;"	m	class:ConfigurationDialog
+columnCount	.\gui\postgis_search_model.py	/^    def columnCount(self, parent=QModelIndex()):$/;"	m	class:PostgisSearchModel
+columnCount	.\gui\project_search_model.py	/^    def columnCount(self, parent=QModelIndex()):$/;"	m	class:ProjectSearchModel
+config_widget	.\qgissettingmanager\setting.py	/^    def config_widget(self, widget):$/;"	m	class:Setting
+config_widget	.\qgissettingmanager\types\bool.py	/^    def config_widget(self, widget):$/;"	m	class:Bool
+config_widget	.\qgissettingmanager\types\color.py	/^    def config_widget(self, widget):$/;"	m	class:Color
+config_widget	.\qgissettingmanager\types\double.py	/^    def config_widget(self, widget):$/;"	m	class:Double
+config_widget	.\qgissettingmanager\types\integer.py	/^    def config_widget(self, widget):$/;"	m	class:Integer
+config_widget	.\qgissettingmanager\types\string.py	/^    def config_widget(self, widget):$/;"	m	class:String
+config_widget	.\qgissettingmanager\types\stringlist.py	/^    def config_widget(self, widget):$/;"	m	class:Stringlist
+conn	.\core\project_finder.py	/^    conn = None$/;"	v	class:ProjectFinder
+connectToUri	.\core\postgis_finder.py	/^    def connectToUri(self, uri):$/;"	m	class:PostgisFinder
+connect_widget_auto_update	.\qgissettingmanager\setting_widget.py	/^    def connect_widget_auto_update(self):$/;"	m	class:SettingWidget
+continue_search	.\core\abstract_finder.py	/^    continue_search = False$/;"	v	class:AbstractFinder
+copy	.\core\ordereddict.py	/^    def copy(self):$/;"	m	class:OrderedDict
+create_FTS_file	.\core\project_finder.py	/^def create_FTS_file(filepath):$/;"	f
+create_FTS_file	.\gui\configuration_dialog.py	/^from ..core.project_finder import ProjectFinder, create_FTS_file$/;"	i
+create_QFTS_file	.\gui\configuration_dialog.py	/^    def create_QFTS_file(self):$/;"	m	class:ConfigurationDialog
+currentLayerLength	.\gui\refresh_dialog.py	/^    currentLayerLength = 0$/;"	v	class:RefreshDialog
+data	.\gui\postgis_search_model.py	/^    def data(self, index, role=Qt.DisplayRole):$/;"	m	class:PostgisSearchModel
+data	.\gui\project_search_model.py	/^    def data(self, index, role=Qt.DisplayRole):$/;"	m	class:ProjectSearchModel
+data	.\gui\result_model.py	/^    def data(self, role):$/;"	m	class:GroupItem
+date	.\core\project_finder.py	/^from datetime import date, datetime, timedelta$/;"	i
+dateEvaluated	.\core\project_search.py	/^    def dateEvaluated(self): return self._dateEvaluated$/;"	m	class:ProjectSearch
+dateEvaluated	.\core\project_search.py	/^    def dateEvaluated(self, value):$/;"	m	class:ProjectSearch
+datetime	.\core\project_finder.py	/^from datetime import date, datetime, timedelta$/;"	i
+dbConnectionList	.\gui\configuration_dialog.py	/^    def dbConnectionList(self):$/;"	m	class:ConfigurationDialog
+deleteSearch	.\core\postgis_finder.py	/^    def deleteSearch(self, searchId):$/;"	m	class:PostgisFinder
+deleteSearch	.\core\project_finder.py	/^    def deleteSearch(self, searchId, commit=True):$/;"	m	class:ProjectFinder
+disabling	.\core\postgis_finder.py	/^    print("Couldn't import helper from processing.tools.postgis - disabling PostgisFinder")$/;"	i
+disconnect_widget_auto_update	.\qgissettingmanager\setting_widget.py	/^    def disconnect_widget_auto_update(self):$/;"	m	class:SettingWidget
+display_message	.\quickfinder_plugin.py	/^    def display_message(self, message, level):$/;"	m	class:QuickFinder
+edit	.\core\postgis_search.py	/^    def edit(self, searchName, expression, priority, srid,$/;"	m	class:PostgisSearch
+edit	.\core\project_search.py	/^    def edit(self, searchName, layerid, layerName, expression, geometryStorage, priority, srid):$/;"	m	class:ProjectSearch
+edit_project_search	.\gui\configuration_dialog.py	/^    def edit_project_search(self):$/;"	m	class:ConfigurationDialog
+ee	.\gui\cood_trans.py	/^ee = 0.00669342162296594323  # 偏心率平方$/;"	v
+enableButtons	.\gui\configuration_dialog.py	/^    def enableButtons(self):$/;"	m	class:ConfigurationDialog
+error	.\core\http_finder.py	/^import urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse, json$/;"	i
+expression	.\core\postgis_search.py	/^    def expression(self): return self._expression$/;"	m	class:PostgisSearch
+expression	.\core\project_search.py	/^    def expression(self): return self._expression$/;"	m	class:ProjectSearch
+expressionIterator	.\core\project_finder.py	/^    def expressionIterator(self, layer, expression, geometryStorage):$/;"	m	class:ProjectFinder
+fileChanged	.\core\project_finder.py	/^    fileChanged = pyqtSignal()$/;"	v	class:ProjectFinder
+fileChanged	.\gui\project_search_model.py	/^    def fileChanged(self):$/;"	m	class:ProjectSearchModel
+find	.\core\postgis_finder.py	/^    def find(self, to_find):$/;"	m	class:PostgisFinder
+find	.\core\project_finder.py	/^    def find(self, to_find):$/;"	m	class:ProjectFinder
+finders	.\quickfinder_plugin.py	/^    finders = {}$/;"	v	class:QuickFinder
+finished	.\core\abstract_finder.py	/^    finished = pyqtSignal(QObject)$/;"	v	class:AbstractFinder
+finished	.\gui\finder_box.py	/^    def finished(self, finder):$/;"	m	class:FinderBox
+for	.\core\project_finder.py	/^    from .ordereddict import OrderedDict  # for Python < 2.7$/;"	i
+from	.\core\postgis_finder.py	/^    print("Couldn't import helper from processing.tools.postgis - disabling PostgisFinder")$/;"	i
+fromkeys	.\core\ordereddict.py	/^    def fromkeys(cls, iterable, value=None):$/;"	m	class:OrderedDict
+gcj02_to_bd09	.\gui\cood_trans.py	/^def gcj02_to_bd09(lng, lat):$/;"	f
+gcj02_to_wgs84	.\gui\cood_trans.py	/^def gcj02_to_wgs84(lng, lat):$/;"	f
+geocode	.\gui\cood_trans.py	/^    def geocode(self, address):$/;"	m	class:Geocoding
+geocodeFinder	.\gui\finder_box.py	/^    def geocodeFinder(self, to_finder):$/;"	m	class:FinderBox
+geomapfishCrsButtonClicked	.\gui\configuration_dialog.py	/^    def geomapfishCrsButtonClicked(self):$/;"	m	class:ConfigurationDialog
+geometryStorage	.\core\project_search.py	/^    def geometryStorage(self): return self._geometryStorage$/;"	m	class:ProjectSearch
+getInfo	.\core\project_finder.py	/^    def getInfo(self, key):$/;"	m	class:ProjectFinder
+get_error_message	.\core\http_finder.py	/^    def get_error_message(self, error):$/;"	m	class:HttpFinder
+global_name	.\qgissettingmanager\setting.py	/^    def global_name(self):$/;"	m	class:Setting
+headerData	.\gui\postgis_search_model.py	/^    def headerData(self, section, Orientation, role=Qt.DisplayRole):$/;"	m	class:PostgisSearchModel
+headerData	.\gui\project_search_model.py	/^    def headerData(self, section, Orientation, role=Qt.DisplayRole):$/;"	m	class:ProjectSearchModel
+helper	.\core\postgis_finder.py	/^    print("Couldn't import helper from processing.tools.postgis - disabling PostgisFinder")$/;"	i
+increment	.\gui\result_model.py	/^    def increment(self):$/;"	m	class:GroupItem
+index	.\gui\postgis_search_model.py	/^    def index(self, row, column, parent=QModelIndex()):$/;"	m	class:PostgisSearchModel
+index	.\gui\project_search_model.py	/^    def index(self, row, column, parent=QModelIndex()):$/;"	m	class:ProjectSearchModel
+initGui	.\quickfinder_plugin.py	/^    def initGui(self):$/;"	m	class:QuickFinder
+inspect	.\qgissettingmanager\setting_manager.py	/^import inspect$/;"	i
+isValid	.\core\project_finder.py	/^    isValid = False$/;"	v	class:ProjectFinder
+is_running	.\core\abstract_finder.py	/^    def is_running(self):$/;"	m	class:AbstractFinder
+itemActivated	.\gui\finder_box.py	/^    def itemActivated(self, index):$/;"	m	class:FinderBox
+itemPressed	.\gui\finder_box.py	/^    def itemPressed(self, index):$/;"	m	class:FinderBox
+items	.\core\ordereddict.py	/^    items = DictMixin.items$/;"	v	class:OrderedDict
+iteritems	.\core\ordereddict.py	/^    iteritems = DictMixin.iteritems$/;"	v	class:OrderedDict
+iterkeys	.\core\ordereddict.py	/^    iterkeys = DictMixin.iterkeys$/;"	v	class:OrderedDict
+itervalues	.\core\ordereddict.py	/^    itervalues = DictMixin.itervalues$/;"	v	class:OrderedDict
+json	.\core\geomapfish_finder.py	/^import json$/;"	i
+json	.\core\http_finder.py	/^import urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse, json$/;"	i
+json	.\core\osm_finder.py	/^import json$/;"	i
+json	.\gui\cood_trans.py	/^import json$/;"	i
+json	.\gui\finder_box.py	/^import json$/;"	i
+keyPressEvent	.\gui\finder_box.py	/^    def keyPressEvent(self, event):$/;"	m	class:FinderBox
+keys	.\core\ordereddict.py	/^    def keys(self):$/;"	m	class:OrderedDict
+layer	.\core\project_search.py	/^    def layer(self):$/;"	m	class:ProjectSearch
+layerName	.\core\project_search.py	/^    def layerName(self): return self._layerName$/;"	m	class:ProjectSearch
+layerid	.\core\project_search.py	/^    def layerid(self): return self._layerid$/;"	m	class:ProjectSearch
+limit_reached	.\core\abstract_finder.py	/^    limit_reached = pyqtSignal(QObject, str)$/;"	v	class:AbstractFinder
+limit_reached	.\gui\finder_box.py	/^    def limit_reached(self, finder, layername):$/;"	m	class:FinderBox
+lnglatFinder	.\gui\finder_box.py	/^    def lnglatFinder(self, to_find):$/;"	m	class:FinderBox
+load_data	.\core\geomapfish_finder.py	/^    def load_data(self, data):$/;"	m	class:GeomapfishFinder
+load_data	.\core\osm_finder.py	/^    def load_data(self, data):$/;"	m	class:OsmFinder
+loadingIcon	.\quickfinder_plugin.py	/^    loadingIcon = None$/;"	v	class:QuickFinder
+math	.\gui\cood_trans.py	/^import math$/;"	i
+message	.\core\abstract_finder.py	/^    message = pyqtSignal(str, Qgis.MessageLevel)$/;"	v	class:AbstractFinder
+n_days_ago_iso_date	.\core\project_finder.py	/^def n_days_ago_iso_date(nDays):$/;"	f
+n_days_ago_iso_date	.\gui\refresh_dialog.py	/^from ..core.project_finder import n_days_ago_iso_date$/;"	i
+n_days_ago_iso_date	.\quickfinder_plugin.py	/^from .core.project_finder import ProjectFinder, n_days_ago_iso_date$/;"	i
+name	.\core\abstract_finder.py	/^    name = ''  # to be defined in subclasses$/;"	v	class:AbstractFinder
+name	.\core\geomapfish_finder.py	/^    name = 'geomapfish'$/;"	v	class:GeomapfishFinder
+name	.\core\osm_finder.py	/^    name = 'osm'$/;"	v	class:OsmFinder
+name	.\core\postgis_finder.py	/^    name = 'postgis'$/;"	v	class:PostgisFinder
+name	.\core\project_finder.py	/^    name = 'project'$/;"	v	class:ProjectFinder
+name	.\quickfinder_plugin.py	/^    name = "&Quick Finder"$/;"	v	class:QuickFinder
+nose2	.\qgissettingmanager\test\test_dialog.py	/^import nose2$/;"	i
+nose2	.\qgissettingmanager\test\test_setting.py	/^import nose2$/;"	i
+object	.\qgissettingmanager\scope.py	/^from builtins import object$/;"	i
+object	.\qgissettingmanager\setting.py	/^from builtins import object$/;"	i
+object	.\qgissettingmanager\setting_dialog.py	/^from builtins import object$/;"	i
+object	.\qgissettingmanager\setting_manager.py	/^from builtins import object$/;"	i
+object	.\ui\ui_postgissearch.py	/^from builtins import object$/;"	i
+object	.\ui\ui_projectsearch.py	/^from builtins import object$/;"	i
+object	.\ui\ui_refresh.py	/^from builtins import object$/;"	i
+ogr	.\core\geomapfish_finder.py	/^from osgeo import ogr$/;"	i
+onBeforeAcceptDialog	.\qgissettingmanager\setting_dialog.py	/^    def onBeforeAcceptDialog(self):$/;"	m	class:SettingDialog
+open_QFTS_file	.\gui\configuration_dialog.py	/^    def open_QFTS_file(self):$/;"	m	class:ConfigurationDialog
+optimize	.\core\project_finder.py	/^    def optimize(self):$/;"	m	class:ProjectFinder
+os	.\quickfinder_plugin.py	/^import os.path$/;"	i
+out_of_china	.\gui\cood_trans.py	/^def out_of_china(lng, lat):$/;"	f
+params	.\qgissettingmanager\test\test_dialog.py	/^def params(settings):$/;"	f
+parent	.\gui\postgis_search_model.py	/^    def parent(self, index):$/;"	m	class:PostgisSearchModel
+parent	.\gui\project_search_model.py	/^    def parent(self, index):$/;"	m	class:ProjectSearchModel
+parse	.\core\http_finder.py	/^import urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse, json$/;"	i
+parse	.\gui\finder_box.py	/^from urllib import request, parse$/;"	i
+path	.\gui\configuration_dialog.py	/^from os import remove, path$/;"	i
+path	.\quickfinder_plugin.py	/^import os.path$/;"	i
+pi	.\gui\cood_trans.py	/^pi = 3.1415926535897932384626  # π$/;"	v
+pluginName	.\core\my_settings.py	/^pluginName = "quickfinder_plugin"$/;"	v
+pluginName	.\qgissettingmanager\test\my_settings.py	/^pluginName = "test_plugin"$/;"	v
+pop	.\core\ordereddict.py	/^    pop = DictMixin.pop$/;"	v	class:OrderedDict
+popitem	.\core\ordereddict.py	/^    def popitem(self, last=True):$/;"	m	class:OrderedDict
+postgis	.\core\postgis_finder.py	/^    print("Couldn't import helper from processing.tools.postgis - disabling PostgisFinder")$/;"	i
+postgisCrsButtonClicked	.\gui\postgis_search_dialog.py	/^    def postgisCrsButtonClicked(self):$/;"	m	class:PostgisSearchDialog
+printDebug	.\core\printdebug.py	/^def printDebug(msg):$/;"	f
+print_function	.\core\postgis_finder.py	/^from __future__ import print_function$/;"	i
+print_function	.\core\printdebug.py	/^from __future__ import print_function$/;"	i
+print_function	.\qgissettingmanager\setting_dialog.py	/^from __future__ import print_function$/;"	i
+print_function	.\qgissettingmanager\setting_manager.py	/^from __future__ import print_function$/;"	i
+print_function	.\qgissettingmanager\test\test_dialog.py	/^from __future__ import print_function$/;"	i
+print_function	.\qgissettingmanager\types\bool.py	/^from __future__ import print_function$/;"	i
+print_function	.\qgissettingmanager\types\integer.py	/^from __future__ import print_function$/;"	i
+print_function	.\qgissettingmanager\types\stringlist.py	/^from __future__ import print_function$/;"	i
+priority	.\core\postgis_search.py	/^    def priority(self): return self._priority$/;"	m	class:PostgisSearch
+priority	.\core\project_search.py	/^    def priority(self): return self._priority$/;"	m	class:ProjectSearch
+process	.\gui\postgis_search_dialog.py	/^    def process(self):$/;"	m	class:PostgisSearchDialog
+process	.\gui\project_search_dialog.py	/^    def process(self):$/;"	m	class:ProjectSearchDialog
+processing	.\core\postgis_finder.py	/^    print("Couldn't import helper from processing.tools.postgis - disabling PostgisFinder")$/;"	i
+project	.\core\postgis_search.py	/^    def project(self): return self._project$/;"	m	class:PostgisSearch
+psycopg2	.\core\postgis_finder.py	/^import psycopg2$/;"	i
+pyqtSignal	.\core\abstract_finder.py	/^from qgis.PyQt.QtCore import QObject, pyqtSignal$/;"	i
+pyqtSignal	.\core\postgis_search.py	/^from qgis.PyQt.QtCore import pyqtSignal, QObject$/;"	i
+pyqtSignal	.\core\project_finder.py	/^from qgis.PyQt.QtCore import pyqtSignal, QCoreApplication, QFile, QDir$/;"	i
+pyqtSignal	.\core\project_search.py	/^from qgis.PyQt.QtCore import pyqtSignal, QObject$/;"	i
+pyqtSignal	.\gui\finder_box.py	/^from qgis.PyQt.QtCore import Qt, QCoreApplication, pyqtSignal, QEventLoop, QUrl$/;"	i
+pyqtSignal	.\qgissettingmanager\setting.py	/^from qgis.PyQt.QtCore import QObject, pyqtSignal, QSettings$/;"	i
+pyqtSlot	.\qgissettingmanager\setting_widget.py	/^from qgis.PyQt.QtCore import pyqtSlot, QObject$/;"	i
+pyqtSlot	.\quickfinder_plugin.py	/^from qgis.PyQt.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot$/;"	i
+qCleanupResources	.\resources_rc.py	/^def qCleanupResources():$/;"	f
+qInitResources	.\resources_rc.py	/^def qInitResources():$/;"	f
+qgis	.\qgissettingmanager\__init__.py	/^import qgis$/;"	i
+qgis	.\qgissettingmanager\test\test_dialog.py	/^import qgis$/;"	i
+qgis	.\qgissettingmanager\test\test_setting.py	/^import qgis$/;"	i
+qt_resource_data	.\resources_rc.py	/^"$/;"	v
+qt_resource_name	.\resources_rc.py	/^"$/;"	v
+qt_resource_struct	.\resources_rc.py	/^    qt_resource_struct = qt_resource_struct_v1$/;"	v
+qt_resource_struct	.\resources_rc.py	/^    qt_resource_struct = qt_resource_struct_v2$/;"	v
+qt_resource_struct_v1	.\resources_rc.py	/^"$/;"	v
+qt_resource_struct_v2	.\resources_rc.py	/^"$/;"	v
+qt_version	.\resources_rc.py	/^qt_version = QtCore.qVersion().split('.')$/;"	v
+range	.\gui\finder_box.py	/^from builtins import range$/;"	i
+range	.\gui\result_model.py	/^from builtins import range$/;"	i
+range	.\qgissettingmanager\types\stringlist.py	/^from builtins import range$/;"	i
+rcc_version	.\resources_rc.py	/^    rcc_version = 1$/;"	v
+rcc_version	.\resources_rc.py	/^    rcc_version = 2$/;"	v
+re	.\core\geomapfish_finder.py	/^import re$/;"	i
+re	.\gui\finder_box.py	/^        import re$/;"	i
+readSearches	.\core\postgis_finder.py	/^    def readSearches(self):$/;"	m	class:PostgisFinder
+readSearches	.\core\project_finder.py	/^    def readSearches(self):$/;"	m	class:ProjectFinder
+read_QFTS_file	.\gui\configuration_dialog.py	/^    def read_QFTS_file(self):$/;"	m	class:ConfigurationDialog
+read_out	.\qgissettingmanager\setting.py	/^    def read_out(self, value, scope):$/;"	m	class:Setting
+read_out	.\qgissettingmanager\types\color.py	/^    def read_out(self, value, scope):$/;"	m	class:Color
+read_out	.\qgissettingmanager\types\stringlist.py	/^    def read_out(self, value, scope):$/;"	m	class:Stringlist
+recordSearch	.\core\postgis_finder.py	/^    def recordSearch(self, postgisSearch):$/;"	m	class:PostgisFinder
+recordSearch	.\core\project_finder.py	/^    def recordSearch(self, projectSearch, optimize=True):$/;"	m	class:ProjectFinder
+recordingSearchProgress	.\core\project_finder.py	/^    recordingSearchProgress = pyqtSignal(int)$/;"	v	class:ProjectFinder
+refresh	.\gui\refresh_dialog.py	/^    def refresh(self):$/;"	m	class:RefreshDialog
+refresh_project	.\quickfinder_plugin.py	/^    def refresh_project(self):$/;"	m	class:QuickFinder
+refresh_project_search	.\gui\configuration_dialog.py	/^    def refresh_project_search(self):$/;"	m	class:ConfigurationDialog
+reject	.\gui\configuration_dialog.py	/^    def reject(self):$/;"	m	class:ConfigurationDialog
+reload	.\core\abstract_finder.py	/^    def reload(self):$/;"	m	class:AbstractFinder
+reload	.\core\project_finder.py	/^    def reload(self):$/;"	m	class:ProjectFinder
+remove	.\gui\configuration_dialog.py	/^from os import remove, path$/;"	i
+remove	.\qgissettingmanager\setting_manager.py	/^    def remove(self, setting_name):$/;"	m	class:SettingManager
+removeSearches	.\gui\postgis_search_model.py	/^    def removeSearches(self, searchIds):$/;"	m	class:PostgisSearchModel
+removeSearches	.\gui\project_search_model.py	/^    def removeSearches(self, searchIds):$/;"	m	class:ProjectSearchModel
+remove_postgis_search	.\gui\configuration_dialog.py	/^    def remove_postgis_search(self):$/;"	m	class:ConfigurationDialog
+remove_project_search	.\gui\configuration_dialog.py	/^    def remove_project_search(self):$/;"	m	class:ConfigurationDialog
+reply_finished	.\core\http_finder.py	/^    def reply_finished(self):$/;"	m	class:HttpFinder
+request	.\core\http_finder.py	/^import urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse, json$/;"	i
+request	.\gui\finder_box.py	/^from urllib import request, parse$/;"	i
+reset_default	.\qgissettingmanager\setting.py	/^    def reset_default(self):$/;"	m	class:Setting
+resources_rc	.\quickfinder_plugin.py	/^from . import resources_rc$/;"	i
+result_found	.\core\abstract_finder.py	/^    result_found = pyqtSignal(QObject, str, str, QgsGeometry, int)$/;"	v	class:AbstractFinder
+result_found	.\gui\finder_box.py	/^    def result_found(self, finder, layername, value, geometry, srid):$/;"	m	class:FinderBox
+retranslateUi	.\ui\ui_configuration.py	/^    def retranslateUi(self, Configuration):$/;"	m	class:Ui_Configuration
+retranslateUi	.\ui\ui_postgissearch.py	/^    def retranslateUi(self, PostgisSearch):$/;"	m	class:Ui_PostgisSearch
+retranslateUi	.\ui\ui_projectsearch.py	/^    def retranslateUi(self, ProjectSearch):$/;"	m	class:Ui_ProjectSearch
+retranslateUi	.\ui\ui_refresh.py	/^    def retranslateUi(self, Refresh):$/;"	m	class:Ui_Refresh
+rowCount	.\gui\postgis_search_model.py	/^    def rowCount(self, parent=QModelIndex()):$/;"	m	class:PostgisSearchModel
+rowCount	.\gui\project_search_model.py	/^    def rowCount(self, parent=QModelIndex()):$/;"	m	class:ProjectSearchModel
+runDatabaseMigration	.\core\project_finder.py	/^    def runDatabaseMigration(self):$/;"	m	class:ProjectFinder
+running	.\gui\finder_box.py	/^    running = False$/;"	v	class:FinderBox
+search	.\gui\finder_box.py	/^    def search(self):$/;"	m	class:FinderBox
+searchChanged	.\gui\postgis_search_model.py	/^    def searchChanged(self):$/;"	m	class:PostgisSearchModel
+searchChanged	.\gui\project_search_model.py	/^    def searchChanged(self):$/;"	m	class:ProjectSearchModel
+searchId	.\core\postgis_search.py	/^    def searchId(self): return self._searchId$/;"	m	class:PostgisSearch
+searchId	.\core\project_search.py	/^    def searchId(self): return self._searchId$/;"	m	class:ProjectSearch
+searchName	.\core\postgis_search.py	/^    def searchName(self): return self._searchName$/;"	m	class:PostgisSearch
+searchName	.\core\project_search.py	/^    def searchName(self): return self._searchName$/;"	m	class:ProjectSearch
+searchProgress	.\gui\refresh_dialog.py	/^    searchProgress = 0$/;"	v	class:RefreshDialog
+searchSetting	.\core\postgis_finder.py	/^    def searchSetting(self, searchId, name):$/;"	m	class:PostgisFinder
+search_finished	.\gui\finder_box.py	/^    search_finished = pyqtSignal()$/;"	v	class:FinderBox
+search_finished	.\quickfinder_plugin.py	/^    def search_finished(self):$/;"	m	class:QuickFinder
+search_started	.\gui\finder_box.py	/^    search_started = pyqtSignal()$/;"	v	class:FinderBox
+search_started	.\quickfinder_plugin.py	/^    def search_started(self):$/;"	m	class:QuickFinder
+searches	.\core\postgis_finder.py	/^    def searches(self): return self._searches$/;"	m	class:PostgisFinder
+searches	.\core\project_finder.py	/^    def searches(self): return self._searches$/;"	m	class:ProjectFinder
+searches	.\gui\postgis_search_model.py	/^    searches = {}$/;"	v	class:PostgisSearchModel
+searches	.\gui\project_search_model.py	/^    searches = {}$/;"	v	class:ProjectSearchModel
+searchesLoaded	.\gui\postgis_search_model.py	/^    def searchesLoaded(self):$/;"	m	class:PostgisSearchModel
+selected_search_ids	.\gui\configuration_dialog.py	/^    def selected_search_ids(self):$/;"	m	class:ConfigurationDialog
+setFile	.\core\project_finder.py	/^    def setFile(self, filepath):$/;"	m	class:ProjectFinder
+setInfo	.\core\project_finder.py	/^    def setInfo(self, key, value):$/;"	m	class:ProjectFinder
+setLoading	.\gui\result_model.py	/^    def setLoading(self, isLoading):$/;"	m	class:ResultModel
+setName	.\gui\result_model.py	/^    def setName(self, name):$/;"	m	class:GroupItem
+setProgress	.\gui\refresh_dialog.py	/^    def setProgress(self, value=0):$/;"	m	class:RefreshDialog
+setSelected	.\gui\result_model.py	/^    def setSelected(self, item, palette):$/;"	m	class:ResultModel
+setUpClass	.\qgissettingmanager\test\test_dialog.py	/^    def setUpClass(cls):$/;"	m	class:TestDialog
+setValue	.\qgissettingmanager\setting_manager.py	/^    def setValue(self, setting_name, value):$/;"	m	class:SettingManager
+set_plugin_name	.\qgissettingmanager\setting.py	/^    def set_plugin_name(self, plugin_name):$/;"	m	class:Setting
+set_value	.\qgissettingmanager\setting.py	/^    def set_value(self, value):$/;"	m	class:Setting
+set_value	.\qgissettingmanager\setting_manager.py	/^    def set_value(self, setting_name, value):$/;"	m	class:SettingManager
+set_value_from_widget	.\qgissettingmanager\setting_widget.py	/^    def set_value_from_widget(self):$/;"	m	class:SettingWidget
+set_values_from_widgets	.\qgissettingmanager\setting_dialog.py	/^    def set_values_from_widgets(self):$/;"	m	class:SettingDialog
+set_widget_from_value	.\qgissettingmanager\setting_widget.py	/^    def set_widget_from_value(self):$/;"	m	class:SettingWidget
+set_widget_value	.\qgissettingmanager\setting_widget.py	/^    def set_widget_value(self, value):$/;"	m	class:SettingWidget
+set_widget_value	.\qgissettingmanager\types\bool.py	/^    def set_widget_value(self, value):$/;"	m	class:CheckBoxBoolWidget
+set_widget_value	.\qgissettingmanager\types\bool.py	/^    def set_widget_value(self, value):$/;"	m	class:CheckableBoolWidget
+set_widget_value	.\qgissettingmanager\types\color.py	/^    def set_widget_value(self, value):$/;"	m	class:QgisColorWidget
+set_widget_value	.\qgissettingmanager\types\color.py	/^    def set_widget_value(self, value):$/;"	m	class:StandardColorWidget
+set_widget_value	.\qgissettingmanager\types\double.py	/^    def set_widget_value(self, value):$/;"	m	class:DoubleSpinBoxDoubleWidget
+set_widget_value	.\qgissettingmanager\types\double.py	/^    def set_widget_value(self, value):$/;"	m	class:LineEditDoubleWidget
+set_widget_value	.\qgissettingmanager\types\integer.py	/^    def set_widget_value(self, value):$/;"	m	class:ComboBoxIntegerWidget
+set_widget_value	.\qgissettingmanager\types\integer.py	/^    def set_widget_value(self, value):$/;"	m	class:LineEditIntegerWidget
+set_widget_value	.\qgissettingmanager\types\integer.py	/^    def set_widget_value(self, value):$/;"	m	class:SpinBoxIntegerWidget
+set_widget_value	.\qgissettingmanager\types\string.py	/^    def set_widget_value(self, value):$/;"	m	class:ButtonGroupStringWidget
+set_widget_value	.\qgissettingmanager\types\string.py	/^    def set_widget_value(self, value):$/;"	m	class:ComboStringWidget
+set_widget_value	.\qgissettingmanager\types\string.py	/^    def set_widget_value(self, value):$/;"	m	class:FieldComboStringWidget
+set_widget_value	.\qgissettingmanager\types\string.py	/^    def set_widget_value(self, value):$/;"	m	class:LineEditStringWidget
+set_widget_value	.\qgissettingmanager\types\string.py	/^    def set_widget_value(self, value):$/;"	m	class:MapLayerComboStringWidget
+set_widget_value	.\qgissettingmanager\types\stringlist.py	/^    def set_widget_value(self, value):$/;"	m	class:ButtonGroupStringListWidget
+set_widget_value	.\qgissettingmanager\types\stringlist.py	/^    def set_widget_value(self, value):$/;"	m	class:ListStringListWidget
+set_widgets_from_values	.\qgissettingmanager\setting_dialog.py	/^    def set_widgets_from_values(self):$/;"	m	class:SettingDialog
+setdefault	.\core\ordereddict.py	/^    setdefault = DictMixin.setdefault$/;"	v	class:OrderedDict
+setting	.\qgissettingmanager\setting_manager.py	/^    def setting(self, name):$/;"	m	class:SettingManager
+setting_widget	.\qgissettingmanager\setting_dialog.py	/^    def setting_widget(self, name):$/;"	m	class:SettingDialog
+settings_list	.\qgissettingmanager\setting_manager.py	/^    def settings_list(self):$/;"	m	class:SettingManager
+setupUi	.\ui\ui_configuration.py	/^    def setupUi(self, Configuration):$/;"	m	class:Ui_Configuration
+setupUi	.\ui\ui_postgissearch.py	/^    def setupUi(self, PostgisSearch):$/;"	m	class:Ui_PostgisSearch
+setupUi	.\ui\ui_projectsearch.py	/^    def setupUi(self, ProjectSearch):$/;"	m	class:Ui_ProjectSearch
+setupUi	.\ui\ui_refresh.py	/^    def setupUi(self, Refresh):$/;"	m	class:Ui_Refresh
+showEvent	.\qgissettingmanager\setting_dialog.py	/^    def showEvent(self, e):$/;"	m	class:SettingDialog
+showItem	.\gui\finder_box.py	/^    def showItem(self, item):$/;"	m	class:FinderBox
+show_settings	.\quickfinder_plugin.py	/^    def show_settings(self):$/;"	m	class:QuickFinder
+sqlite3	.\core\project_finder.py	/^import sqlite3$/;"	i
+srid	.\core\postgis_search.py	/^    def srid(self): return self._srid$/;"	m	class:PostgisSearch
+srid	.\core\project_search.py	/^    def srid(self): return self._srid$/;"	m	class:ProjectSearch
+standard_library	.\core\http_finder.py	/^from future import standard_library$/;"	i
+start	.\core\abstract_finder.py	/^    def start(self, to_find, bbox=None):$/;"	m	class:AbstractFinder
+start	.\core\geomapfish_finder.py	/^    def start(self, to_find, crs=None, bbox=None):$/;"	m	class:GeomapfishFinder
+start	.\core\osm_finder.py	/^    def start(self, to_find, bbox=None):$/;"	m	class:OsmFinder
+start	.\core\postgis_finder.py	/^    def start(self, to_find, bbox=None):$/;"	m	class:PostgisFinder
+start	.\core\project_finder.py	/^    def start(self, to_find, bbox=None):$/;"	m	class:ProjectFinder
+start_app	.\qgissettingmanager\test\test_dialog.py	/^from qgis.testing import start_app, unittest$/;"	i
+stop	.\core\abstract_finder.py	/^    def stop(self):$/;"	m	class:AbstractFinder
+stop	.\core\http_finder.py	/^    def stop(self):$/;"	m	class:HttpFinder
+stop	.\gui\finder_box.py	/^    def stop(self):$/;"	m	class:FinderBox
+stop	.\gui\refresh_dialog.py	/^    stop = False$/;"	v	class:RefreshDialog
+stopLoop	.\core\project_finder.py	/^    stopLoop = False$/;"	v	class:ProjectFinder
+stop_record	.\core\project_finder.py	/^    def stop_record(self):$/;"	m	class:ProjectFinder
+str	.\core\geomapfish_finder.py	/^from builtins import str$/;"	i
+str	.\core\osm_finder.py	/^from builtins import str$/;"	i
+str	.\core\postgis_finder.py	/^from builtins import str$/;"	i
+str	.\core\project_finder.py	/^from builtins import str$/;"	i
+str	.\gui\postgis_search_model.py	/^from builtins import str$/;"	i
+str	.\gui\project_search_model.py	/^from builtins import str$/;"	i
+str	.\qgissettingmanager\test\my_settings_dialog.py	/^from builtins import str$/;"	i
+test_dialog_accept_update	.\qgissettingmanager\test\test_dialog.py	/^    def test_dialog_accept_update(self):$/;"	m	class:TestDialog
+test_dialog_auto_update	.\qgissettingmanager\test\test_dialog.py	/^    def test_dialog_auto_update(self):$/;"	m	class:TestDialog
+test_settings	.\qgissettingmanager\test\test_setting.py	/^    def test_settings(self):$/;"	m	class:TestSetting
+time	.\core\project_finder.py	/^import time$/;"	i
+time	.\gui\refresh_dialog.py	/^import time$/;"	i
+timedelta	.\core\project_finder.py	/^from datetime import date, datetime, timedelta$/;"	i
+to_finish	.\gui\finder_box.py	/^    to_finish = 0$/;"	v	class:FinderBox
+toolbar	.\quickfinder_plugin.py	/^    toolbar = None$/;"	v	class:QuickFinder
+tools	.\core\postgis_finder.py	/^    print("Couldn't import helper from processing.tools.postgis - disabling PostgisFinder")$/;"	i
+transform	.\core\abstract_finder.py	/^    transform = None  # to be defined by subclasses$/;"	v	class:AbstractFinder
+transform_geom	.\gui\finder_box.py	/^    def transform_geom(self, item):$/;"	m	class:FinderBox
+truncateHistory	.\gui\result_model.py	/^    def truncateHistory(self, limit):$/;"	m	class:ResultModel
+unittest	.\qgissettingmanager\test\test_dialog.py	/^from qgis.testing import start_app, unittest$/;"	i
+unittest	.\qgissettingmanager\test\test_setting.py	/^from qgis.testing import unittest$/;"	i
+unload	.\quickfinder_plugin.py	/^    def unload(self):$/;"	m	class:QuickFinder
+update	.\core\ordereddict.py	/^    update = DictMixin.update$/;"	v	class:OrderedDict
+uri_from_name	.\core\postgis_finder.py	/^    from processing.tools.postgis import uri_from_name, DbError$/;"	i
+urllib	.\core\http_finder.py	/^import urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse, json$/;"	i
+urllib	.\gui\cood_trans.py	/^import urllib$/;"	i
+uuid1	.\gui\postgis_search_model.py	/^from uuid import uuid1$/;"	i
+uuid1	.\gui\project_search_model.py	/^from uuid import uuid1$/;"	i
+value	.\qgissettingmanager\setting.py	/^    def value(self):$/;"	m	class:Setting
+value	.\qgissettingmanager\setting_manager.py	/^    def value(self, setting_name):$/;"	m	class:SettingManager
+valueChanged	.\qgissettingmanager\setting.py	/^    valueChanged = pyqtSignal()$/;"	v	class:Setting
+values	.\core\ordereddict.py	/^    values = DictMixin.values$/;"	v	class:OrderedDict
+version	.\core\project_finder.py	/^    version = '2.0'  # version of the SQLite file. Will be used if any changes to the format are made.$/;"	v	class:ProjectFinder
+wgs84_to_bd09	.\gui\cood_trans.py	/^def wgs84_to_bd09(lon, lat):$/;"	f
+wgs84_to_gcj02	.\gui\cood_trans.py	/^def wgs84_to_gcj02(lng, lat):$/;"	f
+widget_list	.\qgissettingmanager\setting_dialog.py	/^    def widget_list(self):$/;"	m	class:SettingDialog
+widget_test	.\qgissettingmanager\setting_widget.py	/^    def widget_test(self, value):$/;"	m	class:SettingWidget
+widget_test	.\qgissettingmanager\types\bool.py	/^    def widget_test(self, value):$/;"	m	class:CheckableBoolWidget
+widget_value	.\qgissettingmanager\setting_widget.py	/^    def widget_value(self):$/;"	m	class:SettingWidget
+widget_value	.\qgissettingmanager\types\bool.py	/^    def widget_value(self):$/;"	m	class:CheckBoxBoolWidget
+widget_value	.\qgissettingmanager\types\bool.py	/^    def widget_value(self):$/;"	m	class:CheckableBoolWidget
+widget_value	.\qgissettingmanager\types\color.py	/^    def widget_value(self):$/;"	m	class:QgisColorWidget
+widget_value	.\qgissettingmanager\types\color.py	/^    def widget_value(self):$/;"	m	class:StandardColorWidget
+widget_value	.\qgissettingmanager\types\double.py	/^    def widget_value(self):$/;"	m	class:DoubleSpinBoxDoubleWidget
+widget_value	.\qgissettingmanager\types\double.py	/^    def widget_value(self):$/;"	m	class:LineEditDoubleWidget
+widget_value	.\qgissettingmanager\types\integer.py	/^    def widget_value(self):$/;"	m	class:ComboBoxIntegerWidget
+widget_value	.\qgissettingmanager\types\integer.py	/^    def widget_value(self):$/;"	m	class:LineEditIntegerWidget
+widget_value	.\qgissettingmanager\types\integer.py	/^    def widget_value(self):$/;"	m	class:SpinBoxIntegerWidget
+widget_value	.\qgissettingmanager\types\string.py	/^    def widget_value(self):$/;"	m	class:ButtonGroupStringWidget
+widget_value	.\qgissettingmanager\types\string.py	/^    def widget_value(self):$/;"	m	class:ComboStringWidget
+widget_value	.\qgissettingmanager\types\string.py	/^    def widget_value(self):$/;"	m	class:FieldComboStringWidget
+widget_value	.\qgissettingmanager\types\string.py	/^    def widget_value(self):$/;"	m	class:LineEditStringWidget
+widget_value	.\qgissettingmanager\types\string.py	/^    def widget_value(self):$/;"	m	class:MapLayerComboStringWidget
+widget_value	.\qgissettingmanager\types\stringlist.py	/^    def widget_value(self):$/;"	m	class:ButtonGroupStringListWidget
+widget_value	.\qgissettingmanager\types\stringlist.py	/^    def widget_value(self):$/;"	m	class:ListStringListWidget
+write_in	.\qgissettingmanager\setting.py	/^    def write_in(self, value, scope):$/;"	m	class:Setting
+write_in	.\qgissettingmanager\types\color.py	/^    def write_in(self, value, scope):$/;"	m	class:Color
+write_in	.\qgissettingmanager\types\stringlist.py	/^    def write_in(self, value, scope):$/;"	m	class:Stringlist
+x_pi	.\gui\cood_trans.py	/^x_pi = 3.14159265358979324 * 3000.0 \/ 180.0$/;"	v
+zip	.\core\ordereddict.py	/^from builtins import zip$/;"	i
+zoomLnglat	.\gui\finder_box.py	/^    def zoomLnglat(self, lng, lat):$/;"	m	class:FinderBox
+zoom_to_rubberband	.\gui\finder_box.py	/^    def zoom_to_rubberband(self):$/;"	m	class:FinderBox

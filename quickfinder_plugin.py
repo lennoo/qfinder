@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 #-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
@@ -45,7 +44,7 @@ from . import resources_rc
 
 class QuickFinder(QObject):
 
-    name = u"&Quick Finder"
+    name = "&Quick Finder"
     actions = None
     toolbar = None
     finders = {}
@@ -112,6 +111,7 @@ class QuickFinder(QObject):
         self.finder_box = FinderBox(self.finders, self.iface, self.toolbar)
         self.finder_box.search_started.connect(self.search_started)
         self.finder_box.search_finished.connect(self.search_finished)
+
         self.finder_box_action = self.toolbar.addWidget(self.finder_box)
         self.finder_box_action.setVisible(True)
         self.search_action.triggered.connect(self.finder_box.search)
@@ -181,6 +181,3 @@ class QuickFinder(QObject):
                           QMessageBox.Cancel | QMessageBox.Yes).exec_()
         if ret == QMessageBox.Yes:
             RefreshDialog(self.finders['project']).exec_()
-
-
-

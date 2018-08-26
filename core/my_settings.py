@@ -38,6 +38,7 @@ class MySettings(SettingManager):
         self.add_setting(Integer("totalLimit", Scope.Global, 80))
 
         # project settings
+        self.add_setting(String("baiduUrl", Scope.Project, ''))
         self.add_setting(Bool("project", Scope.Project, False))
         self.add_setting(String("layerId", Scope.Project, ''))
         self.add_setting(String("fieldName", Scope.Project, ''))
