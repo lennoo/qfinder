@@ -1,4 +1,4 @@
-#-----------------------------------------------------------
+#{{{-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
 # Copyright (C) 2014 Denis Rouzaud, Anrnaud Morvan
@@ -21,7 +21,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
-#---------------------------------------------------------------------
+#--------------------------------------------------------------------}}}
 
 import json
 from builtins import range
@@ -141,7 +141,6 @@ class FinderBox(QComboBox):
 
     def zoomLnglat(self, lng, lat):
         x, y = lng, lat
-        print(f"{x},{y}")
 
         canvas = self.mapCanvas
         currExt = canvas.extent()
@@ -165,27 +164,24 @@ class FinderBox(QComboBox):
         canvas.refresh()
         return True
 
-    def geocodeFinder(self, to_finder):
-        print(to_finder[:2])
-        if not to_finder[:2] == 'b:':
-            return False
-            
-        from .baidukey import apikey
-        address = to_finder[2:] 
-        url = MySettings().value("baiduUrl")
-        print(url)
-        url = url + parse.quote(address)
-        print(url)
-
-        response = request.urlopen(url)
-        content = response.read()
-        data = json.loads(content)
-        print(data)
-        lng, lat = (data['result']['location']['lng'], data['result']['location']['lat'])
-        from .cood_trans import bd09_to_wgs84
-        lng, lat = bd09_to_wgs84(lng, lat)
-        print(f'{lng}-{lat}')
-        return self.zoomLnglat(lng, lat)
+#    def geocodeFinder(self, to_finder):
+#        print(to_finder[:2])
+#        if not to_finder[:2] == 'b:':
+#            return False
+#
+#        address = to_finder[2:] 
+#        url = MySettings().value("baiduUrl")
+#        url = url + parse.quote(address)
+#
+#        response = request.urlopen(url)
+#        content = response.read()
+#        data = json.loads(content)
+#        print(data)
+#        lng, lat = (data['result']['location']['lng'], data['result']['location']['lat'])
+#        from .cood_trans import bd09_to_wgs84
+#        lng, lat = bd09_to_wgs84(lng, lat)
+#        print(f'{lng}-{lat}')
+#        return self.zoomLnglat(lng, lat)
 
 
     def search(self):
@@ -196,7 +192,8 @@ class FinderBox(QComboBox):
         to_find = self.lineEdit().text()
         if not to_find or to_find == '':
             return
-        if not (self.lnglatFinder(to_find) or self.geocodeFinder(to_find)):
+#        if not (self.lnglatFinder(to_find) or self.geocodeFinder(to_find)):
+        if not self.lnglatFinder(to_find):
             self.showPopup()
 
         self.running = True

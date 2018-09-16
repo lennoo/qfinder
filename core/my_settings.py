@@ -1,4 +1,4 @@
-# -----------------------------------------------------------
+# {{{-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
 # Copyright (C) 2014 Denis Rouzaud, Arnaud Morvan
@@ -21,7 +21,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
-# ---------------------------------------------------------------------
+# ---------------------------------------------------------------------}}}
 
 from ..qgissettingmanager import SettingManager, Scope, Bool, String, Integer, Stringlist
 
@@ -38,7 +38,6 @@ class MySettings(SettingManager):
         self.add_setting(Integer("totalLimit", Scope.Global, 80))
 
         # project settings
-        self.add_setting(String("baiduUrl", Scope.Project, ''))
         self.add_setting(Bool("project", Scope.Project, False))
         self.add_setting(String("layerId", Scope.Project, ''))
         self.add_setting(String("fieldName", Scope.Project, ''))
@@ -50,6 +49,11 @@ class MySettings(SettingManager):
         # OpenStreetMap settings
         self.add_setting(Bool("osm", Scope.Global, True))
         self.add_setting(String("osmUrl", Scope.Global,'http://nominatim.openstreetmap.org/search'))
+
+
+        # amap(chinese:gaode) settings
+        self.add_setting(Bool("amap", Scope.Global, True))
+        self.add_setting(String("amapUrl", Scope.Global, 'http://restapi.amap.com/v3/place/text?key=<your amap key>'))
 
         # GeoMapFish settings
         self.add_setting(Bool("geomapfish", Scope.Global, True))
@@ -63,3 +67,4 @@ class MySettings(SettingManager):
         self.add_setting(String("postgisConnection", Scope.Global, '',
                          {'comboMode': 'text'}))
         self.add_setting(Stringlist("postgisSearches", Scope.Project, []))
+

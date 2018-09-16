@@ -24,50 +24,62 @@
 #---------------------------------------------------------------------}}}
 
 from builtins import str
-import json
+import urllib,json
 
 from qgis.core import QgsGeometry
 from .http_finder import HttpFinder
+from . import geochina
 
 
-class OsmFinder(HttpFinder):
+class AmapFinder(HttpFinder):
 
-    name = 'osm'
+    name = 'amap'
 
     def __init__(self, parent):
         HttpFinder.__init__(self, parent)
 
     def start(self, to_find, bbox=None):
-        super(OsmFinder, self).start(to_find, bbox)
+        super(AmapFinder, self).start(to_find, bbox)
 
-        url = self.settings.value('osmUrl')
-
-        # The preferred area to find search results
-        viewbox = '{},{},{},{}'.format(bbox.xMinimum(),
-                                       bbox.yMaximum(),
-                                       bbox.xMaximum(),
-                                       bbox.yMinimum())
-
-        params = {
-            'q'            : to_find,
+        url = self.settings.value('amapUrl')
+        o = urllib.parse.urlsplit(url)
+        url = urllib.parse.urlunsplit((o.scheme,o.netloc,o.path,'',''))     #ampa query base url
+        params = dict(urllib.parse.parse_qsl(o.query))
+        default_params = {
+            'keywords': to_find,
+            'city': 330303, # wenzhou, chinese code
+            'types':    '',
             'format'       : 'json',
-            'polygon_text' : '1',
-            'viewbox'      : viewbox,
-            'limit'        : str(self.settings.value('totalLimit'))
+            'offset'        : '25',
+            'children': 1,
+            'page': '1',
         }
-        # 'bounded' : '1'
+        params = {**default_params, **params}
         self._sendRequest(url, params)
 
     def load_data(self, data):
-        for d in data:
-            try:
-                wkt = d['geotext']
-            except KeyError:
-                wkt = 'POINT(%s %s)' % (d['lon'], d['lat'])
+        print(data)
+        pois = data['pois']
+        for p in pois:
+            lng, lat = p['location'].split(',')
+            lng, lat = geochina.gcj02_to_wgs84(float(lng), float(lat))
+            wkt = f'POINT({lng} {lat})'
             geometry = QgsGeometry.fromWkt(wkt)
             self.result_found.emit(self,
-                                  d['type'],
-                                  d['display_name'],
+                                  p['type'],
+                                  p['name'],
                                   geometry,
                                   4326)
         self._finish()
+#        for d in data:
+#            try:
+#                wkt = d['geotext']
+#            except KeyError:
+#                wkt = 'POINT(%s %s)' % (d['lon'], d['lat'])
+#            geometry = QgsGeometry.fromWkt(wkt)
+#            self.result_found.emit(self,
+#                                  d['type'],
+#                                  d['display_name'],
+#                                  geometry,
+#                                  4326)
+#        self._finish()

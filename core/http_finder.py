@@ -1,4 +1,4 @@
-#-----------------------------------------------------------
+#{{{-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
 # Copyright (C) 2014 Denis Rouzaud, Arnaud Morvan
@@ -21,12 +21,12 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
-#---------------------------------------------------------------------
+#---------------------------------------------------------------------}}}
 from future import standard_library
 standard_library.install_aliases()
 import urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse, json
 
-from qgis.PyQt.QtCore import QUrl
+from qgis.PyQt.QtCore import QUrl, QUrlQuery
 from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply
 from qgis.core import QgsNetworkAccessManager
 from qgis.core import QgsLogger
@@ -37,12 +37,11 @@ from .abstract_finder import AbstractFinder
 
 class HttpFinder(AbstractFinder):
 
-#    def __init__(self, parent):
-#        super(HttpFinder, self).__init__(parent)
-    def __init__(self):
-        self.asynchonous = True
+    def __init__(self, parent):
+        super(HttpFinder, self).__init__(parent)
+#        self.asynchonous = True
+        self.asynchonous = False
         self.reply = None
-
     def _sendRequest(self, url, params, headers={}):
         if self.asynchonous:
 
@@ -52,18 +51,19 @@ class HttpFinder(AbstractFinder):
                 self.reply = None
 
             url = QUrl(url)
+            urlQuery = QUrlQuery(url)
             for key, value in params.items():
-                url.addQueryItem(key, value)
+                urlQuery.addQueryItem(key, value)
             QgsLogger.debug('Request: {}'.format(url.toEncoded()))
+            url.setQuery(urlQuery)
             request = QNetworkRequest(url)
             for key, value in headers.items():
                 request.setRawHeader(key, value)
             self.reply = QgsNetworkAccessManager.instance().get(request)
-            self.reply.finished.connect(self.reply_finished)
-            print('request')
 
         else:
-            response = urllib.request.urlopen(self.url + '?' + urllib.parse.urlencode(params))
+            url = url + '?' + urllib.parse.urlencode(params)
+            response = urllib.request.urlopen(url)
             data = json.load(response)
             self.load_data(data)
 

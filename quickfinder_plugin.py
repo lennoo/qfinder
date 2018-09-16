@@ -1,4 +1,4 @@
-#-----------------------------------------------------------
+#{{{-----------------------------------------------------------
 #
 # QGIS Quick Finder Plugin
 # Copyright (C) 2013 Denis Rouzaud
@@ -21,7 +21,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
-#---------------------------------------------------------------------
+#------------------------------------------------------------------}}}
 
 import os.path
 from qgis.PyQt.QtCore import Qt, QObject, QSettings, QCoreApplication, QTranslator, QUrl, pyqtSlot
@@ -31,9 +31,10 @@ from qgis.gui import QgsRubberBand
 from qgis.core import Qgis
 
 from .core.project_finder import ProjectFinder, n_days_ago_iso_date
-#from .core.osm_finder import OsmFinder
+from .core.osm_finder import OsmFinder
 #from .core.geomapfish_finder import GeomapfishFinder
 #from .core.postgis_finder import PostgisFinder
+from .core.amap_finder import AmapFinder
 from .core.my_settings import MySettings
 from .gui.configuration_dialog import ConfigurationDialog
 from .gui.refresh_dialog import RefreshDialog
@@ -123,8 +124,9 @@ class QuickFinder(QObject):
 
     def _init_finders(self):
 #        self.finders['geomapfish'] = GeomapfishFinder(self)
-#        self.finders['osm'] = OsmFinder(self)
+        self.finders['osm'] = OsmFinder(self)
         self.finders['project'] = ProjectFinder(self)
+        self.finders['amap'] = AmapFinder(self)
 #        self.finders['postgis'] = PostgisFinder(self)
         for key in list(self.finders.keys()):
             self.finders[key].message.connect(self.display_message)
