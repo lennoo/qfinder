@@ -1,3 +1,4 @@
 *.pyc
 *.swp
 ./gui/baidukey
+tags
