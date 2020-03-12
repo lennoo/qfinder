@@ -47,7 +47,7 @@ class AmapFinder(HttpFinder):
         params = dict(urllib.parse.parse_qsl(o.query))
         default_params = {
             'keywords': to_find,
-            'city': 330303, # wenzhou, chinese code
+            'city': 330327, # wenzhou, chinese code
             'types':    '',
             'format'       : 'json',
             'offset'        : '25',
